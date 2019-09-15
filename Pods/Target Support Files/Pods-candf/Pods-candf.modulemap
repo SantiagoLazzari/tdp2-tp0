@@ -1,6 +1,0 @@
-framework module Pods_candf {
-  umbrella header "Pods-candf-umbrella.h"
-
-  export *
-  module * { export * }
-}
