@@ -5,7 +5,7 @@ target 'MyHealthApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for candf
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   target 'MyHealthAppTests' do
     inherit! :search_paths

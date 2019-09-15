@@ -12,18 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let baseRouter = LoginAppRouter()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let viewController = HomeViewController()
-        let presenter = HomePresenter(view: viewController)
-        viewController.presenter = presenter
+        
+        
+        let controller = UIViewController()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = controller
         window?.makeKeyAndVisible()
-
+        
+        baseRouter.route(toLogin: controller)
     
         return true
     }
