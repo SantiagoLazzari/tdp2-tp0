@@ -59,7 +59,6 @@ class HomePresenter: NSObject {
     }
     
     func enableBasicLocationServices() {
-        
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             // Request when-in-use authorization initially
@@ -78,33 +77,13 @@ class HomePresenter: NSObject {
         }
     }
 
-    func fetch(filters: AtmHomeFilters) {
-        HomeService().getAtms(filters: filters, success: { [weak self] (atms) in
-            if atms.count == 0 {
-                if filters.range == 1000 {
-                    self?.view.show(alertWith: "Atención", subtitle: "No hay atms a 1000 mts, movete por la ciudad para encontrarlos")
-                } else {
-                    self?.view.show(alertWith: "Atención", subtitle: "No hay atms en el radio que estas buscando, aumentá el rango de búsqueda")
-                }
+    func fetch(filters: HomeFilters) {
+        HomeService().getDoctors(filters: filters, success: { [weak self] (doctors) in
+            if doctors.count == 0 {
+                self?.view.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
             }
             
-            self?.view.show(atms: atms)
-        }) { (error) in
-            // caca
-        }
-    }
-    
-    func fetchNetworks() {
-        HomeService().getNetworks(success: { [weak self] (networks) in
-            self?.view.show(networks: networks)
-        }) { (error) in
-            
-        }
-    }
-
-    func fetchBanks(network: String) {
-        HomeService().getBanks(network: network, success: { [weak self] (banks) in
-            self?.view.show(banks: banks)
+            self?.view.show(doctors: doctors)
         }) { (error) in
             
         }
@@ -122,7 +101,7 @@ extension HomePresenter: CLLocationManagerDelegate {
                 view.unfreeze()
                 let coordinate = locations.last?.coordinate
                 
-                fetch(filters: AtmHomeFilters(range: 500, latitude: coordinate!.latitude, longitude: coordinate!.longitude, network: nil, bank: nil))
+                fetch(filters: HomeFilters(range: 500, latitude: coordinate!.latitude, longitude: coordinate!.longitude))
                 locationManager.stopUpdatingLocation()
             }
         }

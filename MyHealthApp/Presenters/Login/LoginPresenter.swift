@@ -32,7 +32,7 @@ class LoginPresenter: NSObject {
         service.login(candidate: UserCandidate(identification: identification, password: password), success: { [weak self] in
             self?.router.routeToHome()
         }) { (error) in
-//            self?.view
+//            self?.vtreiew
         }
     }
     

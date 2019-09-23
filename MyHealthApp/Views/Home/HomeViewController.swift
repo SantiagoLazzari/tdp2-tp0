@@ -12,9 +12,7 @@ import CoreLocation
 import MapKit
 
 protocol HomeView {
-    func show(atms: [Atm])
-    func show(networks: [String])
-    func show(banks: [String])
+    func show(doctors: [Doctor])
     func show(alertWith title: String, subtitle: String)
     func freeze()
     func unfreeze()
@@ -22,8 +20,10 @@ protocol HomeView {
 
 class HomeViewController: ViewController {
 
+    @IBOutlet weak var searchAreaButton: UIButton!
+
     var presenter: HomePresenter?
-    var atms: [Atm]?
+    var doctors: [Doctor]?
     let distancePickerView = UIPickerView()
     let netowrkPickerView = UIPickerView()
     let bankPickerView = UIPickerView()
@@ -31,9 +31,6 @@ class HomeViewController: ViewController {
     var networks: [String] = []
     var banks: [String] = []
     
-    @IBOutlet weak var distanceTextField: UITextField!
-    @IBOutlet weak var networkTextField: UITextField!
-    @IBOutlet weak var bankTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
@@ -49,45 +46,49 @@ class HomeViewController: ViewController {
             mapView.delegate = self
         }
         
-        func setupPickerViews() {
-            distanceTextField.inputView = distancePickerView
-            distancePickerView.delegate = self
-            distancePickerView.dataSource = self
-            distanceTextField.text = "500"
-            
-            networkTextField.inputView = netowrkPickerView
-            networkTextField.delegate = self
-            netowrkPickerView.delegate = self
-            netowrkPickerView.dataSource = self
-            networkTextField.placeholder = "Network"
-
-            bankTextField.inputView = bankPickerView
-            bankPickerView.delegate = self
-            bankPickerView.dataSource = self
-            bankTextField.delegate = self
-            bankTextField.placeholder = "Bank"
+        func setupUI() {
+            searchAreaButton.layer.masksToBounds = true
+            searchAreaButton.layer.cornerRadius = 8
+            searchAreaButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         }
-        
+
         setupMapView()
-        setupPickerViews()
+        setupUI()
+    }
+    
+    @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
+        let filters = HomeFilters(range: getRadius(), latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        presenter?.fetch(filters: filters)
+    }
+
+    func getRadius() -> Int {
+        let centerCoor = self.mapView.centerCoordinate
+        let centerLocation = CLLocation(latitude: centerCoor.latitude, longitude: centerCoor.longitude)
+        
+        // get top left coordinate
+        let topLeftCoor = self.mapView.convert(CGPoint(x: 0,y: 0), toCoordinateFrom: self.mapView)
+        let topLeftLocation =  CLLocation(latitude: topLeftCoor.latitude, longitude: topLeftCoor.longitude)
+        
+        // get top right coordinate
+        let topRightCoor = self.mapView.convert(CGPoint(x: self.mapView.frame.size.width,y: 0), toCoordinateFrom: self.mapView)
+        let topRightLocation = CLLocation(latitude: topRightCoor.latitude, longitude: topRightCoor.longitude)
+        
+        // the distance from center to top left
+        let hypotenuse:CLLocationDistance = centerLocation.distance(from: topLeftLocation)
+        
+        // half of the distance from top left to top right
+        let x:CLLocationDistance = topLeftLocation.distance(from: topRightLocation)/2.0
+        
+        // what we want is this
+        return Int(sqrt(pow(hypotenuse, 2.0) - pow(x, 2.0))) //meter
     }
 }
 
 extension HomeViewController: HomeView {
     func freeze() {
-        distanceTextField.resignFirstResponder()
-        networkTextField.resignFirstResponder()
-        bankTextField.resignFirstResponder()
-        distanceTextField.isEnabled = false
-        networkTextField.isEnabled = false
-        bankTextField.isEnabled = false
-
     }
     
     func unfreeze() {
-        distanceTextField.isEnabled = true
-        networkTextField.isEnabled = true
-        bankTextField.isEnabled = true
     }
     
     func show(alertWith title: String, subtitle: String) {
@@ -102,24 +103,14 @@ extension HomeViewController: HomeView {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func show(networks: [String]) {
-        self.networks = networks
-        networkTextField.becomeFirstResponder()
-    }
-    
-    func show(banks: [String]) {
-        self.banks = banks
-        bankTextField.becomeFirstResponder()
-    }
-    
-    func show(atms: [Atm]) {
+    func show(doctors: [Doctor]) {
         mapView.removeAnnotations(mapView.annotations)
-
-        let annotations = atms.map { (atm) -> MKPointAnnotation in
+        
+        let annotations = doctors.map { (doctor) -> MKAnnotation in
             let annotation = MKPointAnnotation()
-            annotation.title = atm.bank
-            annotation.subtitle = "\(atm.location), \(atm.network), terminales: \(atm.terminals)"
-            annotation.coordinate = CLLocationCoordinate2D(latitude: atm.latitude, longitude: atm.longitude)
+            annotation.title = doctor.name
+            annotation.subtitle = "\(doctor.hospital.name)"
+            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(doctor.hospital.latitude)!, longitude: Double(doctor.hospital.longitude)!)
             return annotation
         }
         
@@ -128,86 +119,7 @@ extension HomeViewController: HomeView {
     }
 }
 
-extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-//
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView == self.distancePickerView {
-            return distance.count
-        }
-        
-        if pickerView == netowrkPickerView {
-            return networks.count
-        }
-        
-        if pickerView == bankPickerView {
-            return banks.count
-        }
-        return 0
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView == self.distancePickerView {
-            return String(distance[row])
-        }
-        
-        if pickerView == netowrkPickerView {
-            return String(networks[row])
-        }
-        
-        if pickerView == bankPickerView {
-            return String(banks[row])
-        }
-        
-        return "no value"
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        if pickerView == self.distancePickerView {
-            distanceTextField.text = String(distance[row])
-        }
-        
-        if pickerView == netowrkPickerView {
-            networkTextField.text = String(networks[row])
-            banks = []
-            bankTextField.text = ""
-        }
-        
-        if pickerView == bankPickerView {
-            bankTextField.text = String(banks[row])
-        }
-        
-        let range = Int(distanceTextField.text!)!
-        let network = networkTextField.text == "" ? nil : networkTextField.text
-        let bank = bankTextField.text == "" ? nil : bankTextField.text
-
-        presenter?.fetch(filters: AtmHomeFilters(range: range, latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude, network: network, bank: bank))
-    }
-}
-
-extension HomeViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == networkTextField && networks.count == 0 {
-            presenter?.fetchNetworks()
-            networkTextField.resignFirstResponder()
-        } else if textField == bankTextField && banks.count == 0 {
-            bankTextField.resignFirstResponder()
-            guard let network = networkTextField.text else {
-                return
-            }
-            presenter?.fetchBanks(network: network)
-        }
-    }
-}
-
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        distanceTextField.resignFirstResponder()
-        networkTextField.resignFirstResponder()
-        bankTextField.resignFirstResponder()
     }
 }

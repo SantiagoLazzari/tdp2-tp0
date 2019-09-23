@@ -21,14 +21,12 @@ struct HttpError: Error {
 typealias ServiceFailure = (HttpError) -> Void
 typealias ServiceSuccess<Element> = (Element) -> Void
 
-// http://54.85.4.200/atms/?range=500&lat=-34.5879346&long=-58.3831004
-// /banks?network=link
-// /networks
 enum Path:String {
-    case base = "http://54.85.4.200/"
-    case atms = "atms/"
-    case banks = "banks/"
-    case networks = "networks/"
+    case base = "http://3.82.194.73/"
+    case oauthToken = "oauth/token/"
+    case signUp = "sign_up/"
+    case doctors = "doctors/"
+    case search = "search/"
 }
 
 class Headers {

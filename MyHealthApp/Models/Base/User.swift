@@ -8,17 +8,53 @@
 
 import UIKit
 
-struct UserCandidate {
-    let identification: Int
-    let password: String
+struct Token: Codable {
+    let token: String
     
     enum CodingKeys: String, CodingKey {
-        case identification = "nombrePagina"
-        case password = "tieneAcceso"
+        case token = "access_token"
     }
-
 }
 
-struct User {
+struct UserCandidate: Codable {
+    let identification: Int
+    let password: String
+    let grantType = "password"
     
+    enum CodingKeys: String, CodingKey {
+        case identification = "document_number"
+        case password = "password"
+        case grantType = "grant_type"
+    }
+}
+
+//document_number:
+//integer
+//medical_plan_number:
+//integer
+//email:
+//string
+//first_name:
+//string
+//last_name:
+//string
+//phone_number:
+//string
+//birth_date:
+//string
+//medical_plan_expiration_date:
+//string
+//password:
+
+
+struct User: Codable {
+    
+}
+
+struct UserResponse: Codable {
+    let response: User
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "response"
+    }
 }

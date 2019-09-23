@@ -10,7 +10,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 
-protocol LoginView {
+protocol LoginView: NSObject {
     
 }
 
@@ -29,10 +29,17 @@ class LoginViewController: ViewController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     func setup() {
         func setupUI() {
             loginButton.layer.masksToBounds = true
             loginButton.layer.cornerRadius = 8
+            passwordTextField.isSecureTextEntry = true
         }
         
         setupUI()
