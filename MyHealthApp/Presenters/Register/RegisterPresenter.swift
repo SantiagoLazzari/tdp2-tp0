@@ -17,6 +17,10 @@ class RegisterPresenter: NSObject {
     }
     
     func register(user: User) {
-        
+        LoginRemoteService().register(user: user, success: {
+            
+        }) { (error) in
+            
+        }
     }
 }

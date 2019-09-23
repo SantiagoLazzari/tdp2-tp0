@@ -8,12 +8,26 @@
 
 import UIKit
 
+protocol DialogView {
+    func show(dialog withTitle: String, subtitle: String)
+}
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
-
+    
+    func show(dialog withTitle: String, subtitle: String) {
+        let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
+        
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(dismissAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

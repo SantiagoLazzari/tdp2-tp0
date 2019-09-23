@@ -28,6 +28,9 @@ class LoginAppRouter: LoginRouter {
     
     func routeToRegister() {
         let controller = RegisterViewController()
+        let presenter = RegisterPresenter(with: controller)
+        
+        controller.presenter = presenter
         view.navigationController?.pushViewController(controller, animated: true)
     }
     

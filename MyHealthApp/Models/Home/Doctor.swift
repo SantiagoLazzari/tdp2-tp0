@@ -9,37 +9,6 @@
 
 import UIKit
 
-//{
-//    "response": [
-//    {
-//    "id": 1,
-//    "name": "Harry",
-//    "phone_number": "1559638738",
-//    "specialty": "traumatologo",
-//    "hospital": {
-//    "id": 1,
-//    "name": "Hospital Aleman",
-//    "address": "Av. Pueyrredón 164",
-//    "latitude": "-34.5922517",
-//    "longitude": "-58.4038044"
-//    }
-//    },
-//    {
-//    "id": 2,
-//    "name": "Ron",
-//    "phone_number": "1559638739",
-//    "specialty": "traumatologo",
-//    "hospital": {
-//    "id": 2,
-//    "name": "Hospital FIUBA",
-//    "address": "Av. Paseo Colón 822",
-//    "latitude": "-34.6175988",
-//    "longitude": "-58.3776464"
-//    }
-//    }
-//    ]
-//}
-
 struct Hospital: Codable {
     let id: Int
     let name: String
