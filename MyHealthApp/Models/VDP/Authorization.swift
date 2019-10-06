@@ -19,11 +19,11 @@ struct Authorization: Codable {
 
     let specialty: Specialty
     let state: AuthorizationState
-    let doctor: Doctor
+    let healthProvider: HealthProvider
     
     enum CodingKeys: String, CodingKey {
         case specialty = "specialty"
         case state = "state"
-        case doctor = "doctor"
+        case healthProvider = "health_provider"
     }
 }

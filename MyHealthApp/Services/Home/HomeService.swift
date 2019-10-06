@@ -20,14 +20,14 @@ struct HomeFilters {
 }
 
 protocol HomeService {
-    func getDoctors(filters: HomeFilters,  success: @escaping ServiceSuccess<[Doctor]>, failure: @escaping ServiceFailure)
+    func getHealthProviders(filters: HomeFilters,  success: @escaping ServiceSuccess<[HealthProvider]>, failure: @escaping ServiceFailure)
 }
 
 class HomeRemoteService: HomeService {
 
-    func getDoctors(filters: HomeFilters,  success: @escaping ServiceSuccess<[Doctor]>, failure: @escaping ServiceFailure)  {
-        Service().get(path: getDoctorsPath(filters: filters), success: { (doctorsResponse: DoctorResponse) in
-            success(doctorsResponse.response)
+    func getHealthProviders(filters: HomeFilters,  success: @escaping ServiceSuccess<[HealthProvider]>, failure: @escaping ServiceFailure)  {
+        Service().get(path: getDoctorsPath(filters: filters), success: { (healthProviderResponse: HealthProviderResponse) in
+            success(healthProviderResponse.response)
         }, failure: failure)
     }
     

@@ -12,7 +12,7 @@ import CoreLocation
 import MapKit
 
 protocol HomeView {
-    func show(doctors: [Doctor])
+    func show(healthProviders: [HealthProvider])
     func show(alertWith title: String, subtitle: String)
     func freeze()
     func unfreeze()
@@ -23,7 +23,7 @@ class HomeViewController: ViewController {
     @IBOutlet weak var searchAreaButton: UIButton!
 
     var presenter: HomePresenter?
-    var doctors: [Doctor]?
+    var healthProvider: [HealthProvider]?
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -51,7 +51,8 @@ class HomeViewController: ViewController {
     }
     
     @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
-        let filters = HomeFilters(range: getRadius()/1000, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude, specialty: nil)
+        // TODO: Remove Speciality
+        let filters = HomeFilters(range: getRadius()/1000, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude, specialty: Specialities.specialities.first)
         presenter?.fetch(filters: filters)
     }
 
@@ -97,14 +98,14 @@ extension HomeViewController: HomeView {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func show(doctors: [Doctor]) {
+    func show(healthProviders: [HealthProvider]) {
         mapView.removeAnnotations(mapView.annotations)
         
-        let annotations = doctors.map { (doctor) -> MKAnnotation in
+        let annotations = healthProviders.map { (healthProvider) -> MKAnnotation in
             let annotation = MKPointAnnotation()
-            annotation.title = doctor.name
-            annotation.subtitle = "\(doctor.hospital.name)"
-            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(doctor.hospital.latitude)!, longitude: Double(doctor.hospital.longitude)!)
+            annotation.title = healthProvider.name
+            annotation.subtitle = "\(healthProvider.name)"
+            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude)!, longitude: Double(healthProvider.longitude)!)
             return annotation
         }
         

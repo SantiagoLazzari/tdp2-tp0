@@ -41,7 +41,7 @@
 		6ACCB172232EB1E70060A340 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB171232EB1E70060A340 /* LoginPresenter.swift */; };
 		6ACCB176232EBB3A0060A340 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB175232EBB3A0060A340 /* LoginRouter.swift */; };
 		6ACCB179232EC01C0060A340 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB178232EC01C0060A340 /* User.swift */; };
-		6ACCB17C232EC23B0060A340 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB17B232EC23B0060A340 /* Doctor.swift */; };
+		6ACCB17C232EC23B0060A340 /* HealthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB17B232EC23B0060A340 /* HealthProvider.swift */; };
 		6ACCB180232ECD590060A340 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB17F232ECD590060A340 /* RegisterRouter.swift */; };
 		6ACCB183232FFEF40060A340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB181232FFEF40060A340 /* RegisterViewController.swift */; };
 		6ACCB184232FFEF40060A340 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACCB182232FFEF40060A340 /* RegisterViewController.xib */; };
@@ -98,7 +98,7 @@
 		6ACCB171232EB1E70060A340 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		6ACCB175232EBB3A0060A340 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		6ACCB178232EC01C0060A340 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		6ACCB17B232EC23B0060A340 /* Doctor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		6ACCB17B232EC23B0060A340 /* HealthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthProvider.swift; sourceTree = "<group>"; };
 		6ACCB17F232ECD590060A340 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		6ACCB181232FFEF40060A340 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6ACCB182232FFEF40060A340 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -405,7 +405,7 @@
 		6ACCB17A232EC23B0060A340 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6ACCB17B232EC23B0060A340 /* Doctor.swift */,
+				6ACCB17B232EC23B0060A340 /* HealthProvider.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -600,7 +600,7 @@
 				6ACBD32D234A88F9004C7D61 /* Specialty.swift in Sources */,
 				6ACCB16F232EAF280060A340 /* LoginViewController.swift in Sources */,
 				6ACCB163232EAD040060A340 /* HomeService.swift in Sources */,
-				6ACCB17C232EC23B0060A340 /* Doctor.swift in Sources */,
+				6ACCB17C232EC23B0060A340 /* HealthProvider.swift in Sources */,
 				6ACCB161232EAD040060A340 /* ViewController.swift in Sources */,
 				6ACCB15E232EAD040060A340 /* AppDelegate.swift in Sources */,
 				6A76FC9723396BF3005BBF75 /* InputValidator.swift in Sources */,
