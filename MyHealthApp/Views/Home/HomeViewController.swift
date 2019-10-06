@@ -24,12 +24,6 @@ class HomeViewController: ViewController {
 
     var presenter: HomePresenter?
     var doctors: [Doctor]?
-    let distancePickerView = UIPickerView()
-    let netowrkPickerView = UIPickerView()
-    let bankPickerView = UIPickerView()
-    let distance = [1000, 500, 200, 100]
-    var networks: [String] = []
-    var banks: [String] = []
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -57,7 +51,7 @@ class HomeViewController: ViewController {
     }
     
     @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
-        let filters = HomeFilters(range: getRadius(), latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        let filters = HomeFilters(range: getRadius()/1000, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude, specialty: nil)
         presenter?.fetch(filters: filters)
     }
 

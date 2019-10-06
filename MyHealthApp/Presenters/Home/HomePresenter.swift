@@ -14,6 +14,8 @@ import Network
 class HomePresenter: NSObject {
 
     let view: HomeView
+    let service: HomeService
+    let router: HomeRouter
     
     let locationManager = CLLocationManager()
     let monitor = NWPathMonitor()
@@ -22,8 +24,10 @@ class HomePresenter: NSObject {
     var isGeoLocating = false
     
     
-    init(view: HomeView) {
+    init(view: HomeView, service: HomeService, router: HomeRouter) {
         self.view = view
+        self.service = service
+        self.router = router
         
         super.init()
         
@@ -78,7 +82,7 @@ class HomePresenter: NSObject {
     }
 
     func fetch(filters: HomeFilters) {
-        HomeService().getDoctors(filters: filters, success: { [weak self] (doctors) in
+        service.getDoctors(filters: filters, success: { [weak self] (doctors) in
             if doctors.count == 0 {
                 self?.view.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
             }
@@ -101,7 +105,7 @@ extension HomePresenter: CLLocationManagerDelegate {
                 view.unfreeze()
                 let coordinate = locations.last?.coordinate
                 
-                fetch(filters: HomeFilters(range: 500, latitude: coordinate!.latitude, longitude: coordinate!.longitude))
+                fetch(filters: HomeFilters(range: 500, latitude: coordinate!.latitude, longitude: coordinate!.longitude, specialty: nil))
                 locationManager.stopUpdatingLocation()
             }
         }

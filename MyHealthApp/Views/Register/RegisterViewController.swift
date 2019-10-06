@@ -11,7 +11,7 @@ import UIKit
 import SkyFloatingLabelTextField
 
 protocol RegisterView {
-    
+    func controller() -> UIViewController
 }
 
 class RegisterViewController: ViewController {
@@ -29,6 +29,7 @@ class RegisterViewController: ViewController {
     
     var presenter: RegisterPresenter?
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +75,6 @@ class RegisterViewController: ViewController {
             planTextField.errorMessage = "Elegí un plan válido"
             return
         }
-        
         
         planTextField.errorMessage = nil
 
@@ -159,5 +159,7 @@ class RegisterViewController: ViewController {
 }
 
 extension RegisterViewController: RegisterView {
-    
+    func controller() -> UIViewController {
+        return self
+    }
 }

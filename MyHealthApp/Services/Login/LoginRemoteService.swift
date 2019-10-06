@@ -14,6 +14,7 @@ protocol LoginService: NSObject {
 }
 
 class LoginRemoteService: NSObject, LoginService {
+    
     func register(user: User, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
         Service().post(path: registerPath(), body: user, success: { (userResponse: UserResponse) in
             success()
@@ -22,6 +23,8 @@ class LoginRemoteService: NSObject, LoginService {
     
     func login(candidate: UserCandidate, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
         Service().post(path: loginPath(), body: candidate, success: { (token: Token) in
+            CurrentUser.shared.setToken(token: token)
+
             success()
         }, failure: failure)
     }
@@ -44,6 +47,8 @@ class LoginLocalService: NSObject, LoginService {
     func login(candidate: UserCandidate, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
         success()
     }
+    
+    
 }
 
 

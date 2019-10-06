@@ -11,16 +11,20 @@ import UIKit
 class RegisterPresenter: NSObject {
     
     let view: RegisterView
+    let service: LoginService
+    let router: RegisterRouter
     
-    init(with view: RegisterView) {
+    init(with view: RegisterView, service: LoginService, router: RegisterRouter) {
         self.view = view
+        self.service = service
+        self.router = router
     }
     
     func register(user: User) {
-        LoginRemoteService().register(user: user, success: {
-            
+        service.register(user: user, success: {
+            self.router.routeToHome()
         }) { (error) in
-            
+            self.router.routeToHome()
         }
     }
 }

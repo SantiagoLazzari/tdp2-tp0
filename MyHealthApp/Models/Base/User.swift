@@ -28,25 +28,6 @@ struct UserCandidate: Codable {
     }
 }
 
-//document_number:
-//integer
-//medical_plan_number:
-//integer
-//email:
-//string
-//first_name:
-//string
-//last_name:
-//string
-//phone_number:
-//string
-//birth_date:
-//string
-//medical_plan_expiration_date:
-//string
-//password:
-
-
 struct User: Codable {
     let identification: Int
     let medicalPlan: Int
@@ -54,9 +35,9 @@ struct User: Codable {
     let name: String
     let lastName: String
     let phone: String
-    let birthDate: String
-    let medicalPlanExpirationDate: String
-    let password: String
+    let birthDate: String?
+    let medicalPlanExpirationDate: String?
+    let password: String?
     
     
     enum CodingKeys: String, CodingKey {

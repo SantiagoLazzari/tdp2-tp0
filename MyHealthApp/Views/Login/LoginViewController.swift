@@ -52,22 +52,21 @@ class LoginViewController: ViewController {
             return
         }
         
-        var report = IdValidator().validate(test: id)
+        let report = IdValidator().validate(test: id)
         if !report.valid {identificationTextField.errorMessage = report.error ;return}
         
         identificationTextField.errorMessage = nil
 
-        guard let password = passwordTextField.text else {
-            passwordTextField.errorMessage = "ingresá una contraseña"
-            return
-        }
-        
-        report = PasswordInputValidator().validate(test: password)
-        
-        if !report.valid {passwordTextField.errorMessage = report.error ;return}
-        
-        passwordTextField.errorMessage = nil
-
+//        guard let password = passwordTextField.text else {
+//            passwordTextField.errorMessage = "ingresá una contraseña"
+//            return
+//        }
+//        
+//        report = PasswordInputValidator().validate(test: password)
+//        
+//        if !report.valid {passwordTextField.errorMessage = report.error ;return}
+//        
+//        passwordTextField.errorMessage = nil
         
         presenter?.login(identification: Int(identificationTextField.text!), password: passwordTextField.text)
     }

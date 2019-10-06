@@ -16,9 +16,14 @@ struct HomeFilters {
     var range: Int
     var latitude: Double
     var longitude: Double
+    var specialty: Specialty?
 }
 
-class HomeService: NSObject {
+protocol HomeService {
+    func getDoctors(filters: HomeFilters,  success: @escaping ServiceSuccess<[Doctor]>, failure: @escaping ServiceFailure)
+}
+
+class HomeRemoteService: HomeService {
 
     func getDoctors(filters: HomeFilters,  success: @escaping ServiceSuccess<[Doctor]>, failure: @escaping ServiceFailure)  {
         Service().get(path: getDoctorsPath(filters: filters), success: { (doctorsResponse: DoctorResponse) in
@@ -27,6 +32,13 @@ class HomeService: NSObject {
     }
     
     func getDoctorsPath(filters: HomeFilters) -> String {
-        return Path.base.rawValue + Path.doctors.rawValue + Path.search.rawValue + "?radius=\(filters.range)&latitude=\(filters.latitude)&longitude=\(filters.longitude)&specialty=traumatologo"
+        
+        let path = Path.base.rawValue + Path.healthProviders.rawValue + Path.search.rawValue + "?radius=\(filters.range)&latitude=\(filters.latitude)&longitude=\(filters.longitude)"
+        
+        guard let specialty = filters.specialty else {
+            return path
+        }
+        
+        return path + "&specialty_id=\(specialty.id)"
     }
 }

@@ -13,20 +13,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let baseRouter = LoginAppRouter()
+    let loginRouter = LoginAppRouter()
+    let homeRouter = HomeAppRouter()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
-        
         let controller = UIViewController()
+        
+        CurrentUser.shared.refreshToken()
+        
+        
+        Specialities.specialities = [Specialty(name: "Odontologia", id: 1), Specialty(name: "Traumatologia", id: 2)]
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = controller
         window?.makeKeyAndVisible()
         
-        baseRouter.route(toLogin: controller)
+        if CurrentUser.shared.getToken() == nil {
+            loginRouter.route(toLogin: controller)
+        } else {
+            homeRouter.routeToHome(from: controller)
+        }
     
         return true
     }

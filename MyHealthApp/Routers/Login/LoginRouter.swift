@@ -17,7 +17,7 @@ protocol LoginRouter {
 class LoginAppRouter: LoginRouter {
     let view = LoginViewController()
     func route(toLogin from: UIViewController) {
-        let service = LoginRemoteService    ()
+        let service = LoginRemoteService()
         let presenter = LoginPresenter(view: view, service: service, router: self)
         view.presenter = presenter
         
@@ -27,18 +27,10 @@ class LoginAppRouter: LoginRouter {
     }
     
     func routeToRegister() {
-        let controller = RegisterViewController()
-        let presenter = RegisterPresenter(with: controller)
-        
-        controller.presenter = presenter
-        view.navigationController?.pushViewController(controller, animated: true)
+        RegisterAppRouter().routeToRegister(from: view)
     }
     
     func routeToHome() {
-        let controller = HomeViewController()
-        let presenter = HomePresenter(view: controller)
-        controller.presenter = presenter
-        
-        view.present(controller, animated: true, completion: nil)
+        HomeAppRouter().routeToHome(from: view)
     }
 }

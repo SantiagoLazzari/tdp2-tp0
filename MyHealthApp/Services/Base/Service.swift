@@ -25,17 +25,22 @@ enum Path:String {
     case base = "http://3.82.194.73/"
     case oauthToken = "oauth/token/"
     case signUp = "sign_up/"
-    case doctors = "doctors/"
+    case healthProviders = "health_providers/"
     case search = "search/"
 }
 
 class Headers {
+    static var token: Token?
     
     static func get() -> Dictionary<String,String> {
         var headers = [
             "Content-Type": "application/json",
-            ]
-
+        ]
+        
+        if let token = self.token {
+            headers["Authorization"] = "Bearer " + token.token
+        }
+        
         return headers
     }
 }

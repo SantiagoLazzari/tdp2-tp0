@@ -9,20 +9,27 @@
 import UIKit
 
 protocol RegisterRouter {
-    func route(toRegister from: UIViewController)
+    func routeToRegister(from: LoginViewController)
     func routeToHome()
     func routeToLogin()
 }
 
 class RegisterAppRouter: RegisterRouter {
-    func route(toRegister from: UIViewController) {
+    let view = RegisterViewController()
+    
+    func routeToRegister(from: LoginViewController) {
+        let service = LoginRemoteService()
+        let presenter = RegisterPresenter(with: view, service: service, router: self)
+        view.presenter = presenter
         
+        from.navigationController?.pushViewController(view, animated: true)
     }
     
     func routeToHome() {
-        
+        HomeAppRouter().routeToHome(from: view)
     }
     
-    func routeToLogin() {        
+    func routeToLogin() {
+        
     }
 }

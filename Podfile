@@ -6,7 +6,8 @@ target 'MyHealthApp' do
   use_frameworks!
 
   pod 'SkyFloatingLabelTextField', '~> 3.0'
-
+  pod 'lottie-ios', '~> 2.5'
+  
   target 'MyHealthAppTests' do
     inherit! :search_paths
     # Pods for testing
