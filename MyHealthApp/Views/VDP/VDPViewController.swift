@@ -104,7 +104,7 @@ class VDPViewController: ViewController {
     
     @IBAction func deleteImageButtonWasTapped(_ sender: Any) {
         image = nil
-        presriptionButton.setImage(nil, for: .normal)
+        presriptionButton.setImage(UIImage(named: "medical_prescription_icon"), for: .normal)
     }
 }
 
