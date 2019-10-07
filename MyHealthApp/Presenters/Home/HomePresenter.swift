@@ -82,8 +82,6 @@ class HomePresenter: NSObject {
     }
 
     func fetch(filters: HomeFilters) {
-    
-        
         service.getHealthProviders(filters: filters, success: { [weak self] (healthProviders) in
             if healthProviders.count == 0 {
                 self?.view.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
@@ -93,6 +91,10 @@ class HomePresenter: NSObject {
         }) { (error) in
             
         }
+    }
+    
+    func presentVDP(healthProvider: HealthProvider) {
+        router.routeToVDP()
     }
 }
 

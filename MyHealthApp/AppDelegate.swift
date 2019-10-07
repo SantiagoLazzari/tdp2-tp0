@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CurrentUser.shared.refreshToken()
         
         
-        Specialities.specialities = [Specialty(name: "Odontologia", id: 1), Specialty(name: "Traumatologia", id: 2)]
+        Specialities.specialities = [Specialty(name: "Traumatología", id: 1), Specialty(name: "Oftalmología", id: 2), Specialty(name: "Cardiología", id: 3), Specialty(name: "Ginecología", id: 4), Specialty(name: "Dermatología", id: 5), Specialty(name: "Pediatría", id: 6), Specialty(name: "Radiología", id: 7)]
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = controller

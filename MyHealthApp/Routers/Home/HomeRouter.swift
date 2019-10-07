@@ -17,6 +17,7 @@ protocol HomeRouter {
 class HomeAppRouter: HomeRouter {
     
     let view = HomeViewController()
+    
     func routeToHome(from: UIViewController) {
         let service = HomeRemoteService()
         let presenter = HomePresenter(view: view, service: service, router: self)
@@ -26,7 +27,7 @@ class HomeAppRouter: HomeRouter {
     }
     
     func routeToVDP() {
-        
+        VDPAppRouter().routeToVDP(from: view)
     }
     
     func routeToLogin() {

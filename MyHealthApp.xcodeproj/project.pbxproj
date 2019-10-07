@@ -26,6 +26,7 @@
 		6ACBD335234A9249004C7D61 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD334234A9249004C7D61 /* Authorization.swift */; };
 		6ACBD337234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD336234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift */; };
 		6ACBD339234AA714004C7D61 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD338234AA713004C7D61 /* CurrentUser.swift */; };
+		6ACBD33F234AB39A004C7D61 /* VDPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD33E234AB39A004C7D61 /* VDPRouter.swift */; };
 		6ACCB15A232EAD040060A340 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6ACCB13C232EAD040060A340 /* Assets.xcassets */; };
 		6ACCB15C232EAD040060A340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6ACCB140232EAD040060A340 /* LaunchScreen.storyboard */; };
 		6ACCB15D232EAD040060A340 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB144232EAD040060A340 /* HomePresenter.swift */; };
@@ -82,6 +83,7 @@
 		6ACBD334234A9249004C7D61 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		6ACBD336234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHealthAppActivityIndicator.swift; sourceTree = "<group>"; };
 		6ACBD338234AA713004C7D61 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		6ACBD33E234AB39A004C7D61 /* VDPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDPRouter.swift; sourceTree = "<group>"; };
 		6ACCB13C232EAD040060A340 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6ACCB141232EAD040060A340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6ACCB144232EAD040060A340 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 			isa = PBXGroup;
 			children = (
 				6ACBD332234A921E004C7D61 /* VDPService.swift */,
+			);
+			path = VDP;
+			sourceTree = "<group>";
+		};
+		6ACBD33D234AB38E004C7D61 /* VDP */ = {
+			isa = PBXGroup;
+			children = (
+				6ACBD33E234AB39A004C7D61 /* VDPRouter.swift */,
 			);
 			path = VDP;
 			sourceTree = "<group>";
@@ -376,6 +386,7 @@
 		6ACCB173232EBAA50060A340 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
+				6ACBD33D234AB38E004C7D61 /* VDP */,
 				6ACCB17E232ECD4C0060A340 /* Home */,
 				6ACCB17D232ECD4C0060A340 /* Register */,
 				6ACCB174232EBAA50060A340 /* Login */,
@@ -620,6 +631,7 @@
 				6ACCB176232EBB3A0060A340 /* LoginRouter.swift in Sources */,
 				6ACCB168232EAD040060A340 /* Service.swift in Sources */,
 				6ACCB180232ECD590060A340 /* RegisterRouter.swift in Sources */,
+				6ACBD33F234AB39A004C7D61 /* VDPRouter.swift in Sources */,
 				6ACBD333234A921E004C7D61 /* VDPService.swift in Sources */,
 				6A3B39AA233C3292009A891A /* VDPPresenter.swift in Sources */,
 				6ACBD339234AA714004C7D61 /* CurrentUser.swift in Sources */,

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class VDPService: NSObject {
+protocol VDPService {
+    func send(authorization: Authorization, success: @escaping () -> Void, failure: @escaping ServiceFailure)
+}
+
+class VDPRemoteService: VDPService {
 
     func send(authorization: Authorization, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
 //        let headers = [

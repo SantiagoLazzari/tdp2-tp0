@@ -11,14 +11,17 @@ import UIKit
 class VDPPresenter: NSObject {
     
     var view: VDPView
+    var service: VDPService
+    var router: VDPRouter
     
-    init(with view: VDPView) {
+    init(with view: VDPView, service: VDPService, router: VDPRouter) {
         self.view = view
+        self.service = service
+        self.router = router
     }
 
     func send(authorization: Authorization) {
-        
-        VDPService().send(authorization: authorization, success: {
+        service.send(authorization: authorization, success: {
             
         }) { (error) in
             

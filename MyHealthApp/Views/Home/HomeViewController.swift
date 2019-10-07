@@ -19,6 +19,10 @@ protocol HomeView {
 }
 
 class HomeViewController: ViewController {
+    
+    class HealthProviderAnnotation: MKPointAnnotation {
+        var healthProvider: HealthProvider?
+    }
 
     @IBOutlet weak var searchAreaButton: UIButton!
 
@@ -102,9 +106,11 @@ extension HomeViewController: HomeView {
         mapView.removeAnnotations(mapView.annotations)
         
         let annotations = healthProviders.map { (healthProvider) -> MKAnnotation in
-            let annotation = MKPointAnnotation()
+            let annotation = HealthProviderAnnotation()
+            
             annotation.title = healthProvider.name
             annotation.subtitle = "\(healthProvider.name)"
+            annotation.healthProvider = healthProvider
             annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude)!, longitude: Double(healthProvider.longitude)!)
             return annotation
         }
@@ -116,5 +122,9 @@ extension HomeViewController: HomeView {
 
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let healthProviderAnnotation = view.annotation as! HealthProviderAnnotation
+        presenter?.presentVDP(healthProvider: healthProviderAnnotation.healthProvider!)
     }
 }
