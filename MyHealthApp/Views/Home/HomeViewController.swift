@@ -60,13 +60,36 @@ class HomeViewController: ViewController {
             searchAreaButton.layer.masksToBounds = true
             searchAreaButton.layer.cornerRadius = 8
             searchAreaButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            searchAreaButton.layer.borderColor = UIColor.lightGray.cgColor
+            searchAreaButton.layer.borderWidth = 1
+
+            
             myAccountButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
             myAccountButton.layer.masksToBounds = true
             myAccountButton.layer.cornerRadius = 8
+            myAccountButton.layer.borderColor = UIColor.lightGray.cgColor
+            myAccountButton.layer.borderWidth = 1
+
+            specialtyTextField.layer.borderColor = UIColor.lightGray.cgColor
+            specialtyTextField.layer.borderWidth = 1            
+            specialtyTextField.layer.masksToBounds = true
+            specialtyTextField.layer.cornerRadius = 8
+
             
             activityInicator = MyHealthAppActivityIndicator(into: view)
             
             let gr = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            
+
+            specialtyTextField.layer.borderColor = UIColor.lightGray.cgColor
+            specialtyTextField.layer.borderWidth = 1
+            
+            specialtyTextField.layer.masksToBounds = true
+            specialtyTextField.layer.cornerRadius = 8
+
+            
+            
+
             
             view.addGestureRecognizer(gr)
             activityInicator = MyHealthAppActivityIndicator(into: view)
