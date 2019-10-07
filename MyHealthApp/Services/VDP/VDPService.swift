@@ -37,7 +37,7 @@ class VDPRemoteService: VDPService {
             }
             
             if let data = imageData {
-                multipartFormData.append(data, withName: "image", fileName: "image.png", mimeType: "image/png")
+                multipartFormData.append(data, withName: "requester_image", fileName: "image.png", mimeType: "image/png")
             }
             
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in

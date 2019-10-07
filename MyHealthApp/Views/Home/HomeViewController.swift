@@ -168,7 +168,7 @@ extension HomeViewController: HomeView {
     func show(alertWith title: String, subtitle: String) {
         let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
         
-        let dismissAction = UIAlertAction(title: "Got it", style: .cancel) { (action) in
+        let dismissAction = UIAlertAction(title: "Ok", style: .cancel) { (action) in
             alert.dismiss(animated: true, completion: nil)
         }
         
@@ -188,6 +188,7 @@ extension HomeViewController: HomeView {
             annotation.healthProvider = healthProvider
             annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude!)!, longitude: Double(healthProvider.longitude!)!)
             return annotation
+            
         }
         
         mapView.addAnnotations(annotations)
@@ -200,6 +201,9 @@ extension HomeViewController: MKMapViewDelegate {
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let healthProviderAnnotation = view.annotation as! HealthProviderAnnotation
+
+        
+        
         presenter?.presentVDP(healthProvider: healthProviderAnnotation.healthProvider!)
     }
 }
