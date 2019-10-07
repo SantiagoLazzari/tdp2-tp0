@@ -27,44 +27,38 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solicitud de autorizacion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEW-RP-U3Z">
-                    <rect key="frame" x="8" y="64" width="398" height="38.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hospital aleman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nR-Kq-mJZ">
-                    <rect key="frame" x="8" y="118.5" width="200" height="35"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                    <rect key="frame" x="8" y="64" width="213.5" height="37"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ruben Dario 2514" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BK-qo-hed">
-                    <rect key="frame" x="8" y="169.5" width="398" height="17"/>
+                    <rect key="frame" x="8" y="117" width="398" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321312312" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-ec-d89">
-                    <rect key="frame" x="8" y="194.5" width="398" height="17"/>
+                    <rect key="frame" x="8" y="142" width="398" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Seleccionar Especialidad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TNM-2U-33W">
-                    <rect key="frame" x="8" y="219.5" width="398" height="30"/>
+                    <rect key="frame" x="8" y="167" width="398" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Especifique el estudio " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FyT-1e-UTD">
-                    <rect key="frame" x="8" y="257.5" width="398" height="30"/>
+                    <rect key="frame" x="8" y="205" width="398" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-Gn-A67">
-                    <rect key="frame" x="16" y="303.5" width="382" height="256"/>
+                    <rect key="frame" x="16" y="251" width="382" height="256"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="256" id="829-Wt-2SA"/>
@@ -95,7 +89,6 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TNM-2U-33W" secondAttribute="trailing" constant="8" id="83w-8C-rgD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b4J-ec-d89" secondAttribute="trailing" constant="8" id="9Qk-0z-xvW"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="top" secondItem="3BK-qo-hed" secondAttribute="bottom" constant="8" id="BPU-xL-MW6"/>
-                <constraint firstItem="sEW-RP-U3Z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="BRc-dY-FFL"/>
                 <constraint firstItem="DaU-ie-amC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Bpq-xB-ar5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DaU-ie-amC" secondAttribute="trailing" constant="8" id="Dcl-eX-qaX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3BK-qo-hed" secondAttribute="trailing" constant="8" id="IC5-uX-tN1"/>
@@ -105,12 +98,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DaU-ie-amC" secondAttribute="bottom" constant="8" id="L0m-vO-odN"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Q5p-Pg-4cC"/>
                 <constraint firstItem="vSd-Gn-A67" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Tjl-IJ-rgL"/>
-                <constraint firstItem="2nR-Kq-mJZ" firstAttribute="top" secondItem="sEW-RP-U3Z" secondAttribute="bottom" constant="16" id="Uvs-JO-spA"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sEW-RP-U3Z" secondAttribute="trailing" constant="8" id="YZV-d9-MWu"/>
                 <constraint firstItem="TNM-2U-33W" firstAttribute="top" secondItem="b4J-ec-d89" secondAttribute="bottom" constant="8" id="dzy-z4-29n"/>
                 <constraint firstItem="2nR-Kq-mJZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="laT-SG-uxZ"/>
                 <constraint firstItem="FyT-1e-UTD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="nj7-J5-9n8"/>
-                <constraint firstItem="sEW-RP-U3Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="s29-ps-Opy"/>
+                <constraint firstItem="2nR-Kq-mJZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="oa9-N1-JI0"/>
                 <constraint firstItem="FyT-1e-UTD" firstAttribute="top" secondItem="TNM-2U-33W" secondAttribute="bottom" constant="8" id="tEc-d0-cHu"/>
                 <constraint firstItem="3BK-qo-hed" firstAttribute="top" secondItem="2nR-Kq-mJZ" secondAttribute="bottom" constant="16" id="vyV-FH-2bm"/>
             </constraints>

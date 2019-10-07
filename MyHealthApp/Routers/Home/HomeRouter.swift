@@ -10,7 +10,8 @@ import UIKit
 
 protocol HomeRouter {
     func routeToHome(from: UIViewController)
-    func routeToVDP()
+    func routeToVDP(healthProvider: HealthProvider)
+    func routeToMyAccount()
     func routeToLogin()
 }
 
@@ -26,13 +27,15 @@ class HomeAppRouter: HomeRouter {
         from.present(view, animated: true, completion: nil)
     }
     
-    func routeToVDP() {
-        VDPAppRouter().routeToVDP(from: view)
+    func routeToVDP(healthProvider: HealthProvider) {
+        VDPAppRouter().routeToVDP(from: view, healthProvider: healthProvider)
     }
     
     func routeToLogin() {
         
     }
     
-
+    func routeToMyAccount() {
+        MyAuthorizationsAppRouter().routeToMyAuthorizations(from: view)
+    }
 }

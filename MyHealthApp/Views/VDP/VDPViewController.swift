@@ -24,6 +24,7 @@ class VDPViewController: ViewController {
     var imagePicker = UIImagePickerController()
     
     var presenter: VDPPresenter?
+    var healthProvider: HealthProvider?
 
     
     override func viewDidLoad() {
@@ -38,8 +39,19 @@ class VDPViewController: ViewController {
             presriptionButton.layer.cornerRadius = 8
             confirmButton.layer.masksToBounds = true
             confirmButton.layer.cornerRadius = 8
+            
+            navigationItem.title = "Solicitud de autorizacion"
+            makeDismissable()
         }
         
+        func setupHealthProvider() {
+            guard let healthProvider = healthProvider else { return }
+            hospitalNameLablel.text = healthProvider.name
+            hospitalAddressLabel.text = healthProvider.address
+            hospitalPhoneLabel.text = healthProvider.phone
+        }
+        
+        setupHealthProvider()
         setupUI()
     }
     

@@ -23,7 +23,17 @@ struct Authorization: Codable {
     
     enum CodingKeys: String, CodingKey {
         case specialty = "specialty"
-        case state = "state"
-        case healthProvider = "health_provider"
+        case state = "status"
+        case healthProvider = "provider"
     }
+}
+
+struct AuthorizationsResponse: Codable {
+    
+    let response: [Authorization]
+
+    enum CodingKeys: String, CodingKey {
+        case response = "response"
+    }
+
 }

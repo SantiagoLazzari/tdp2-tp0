@@ -49,8 +49,8 @@ class HomePresenter: NSObject {
                     self.view.unfreeze()
                 } else {
                     self.isConnected = false
-                    self.view.freeze()
-                    self.view.show(alertWith: "Atención", subtitle: "No hay internet, necesitas internet para usar la app")
+//                    self.view.freeze()
+//                    self.view.show(alertWith: "Atención", subtitle: "No hay internet, necesitas internet para usar la app")
                 }
 
             }
@@ -94,7 +94,11 @@ class HomePresenter: NSObject {
     }
     
     func presentVDP(healthProvider: HealthProvider) {
-        router.routeToVDP()
+        router.routeToVDP(healthProvider: healthProvider)
+    }
+    
+    func presentMyAccount() {
+        router.routeToMyAccount()
     }
 }
 

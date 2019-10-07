@@ -24,6 +24,7 @@ class HomeViewController: ViewController {
         var healthProvider: HealthProvider?
     }
 
+    @IBOutlet weak var myAccountButton: UIButton!
     @IBOutlet weak var searchAreaButton: UIButton!
 
     var presenter: HomePresenter?
@@ -49,9 +50,12 @@ class HomeViewController: ViewController {
             searchAreaButton.layer.cornerRadius = 8
             searchAreaButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         }
-
+        
         setupMapView()
         setupUI()
+    }
+    @IBAction func myAccountButtonWasTapped(_ sender: Any) {
+        presenter?.presentMyAccount()
     }
     
     @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
@@ -109,9 +113,9 @@ extension HomeViewController: HomeView {
             let annotation = HealthProviderAnnotation()
             
             annotation.title = healthProvider.name
-            annotation.subtitle = "\(healthProvider.name)"
+            annotation.subtitle = "\(healthProvider.name!)"
             annotation.healthProvider = healthProvider
-            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude)!, longitude: Double(healthProvider.longitude)!)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude!)!, longitude: Double(healthProvider.longitude!)!)
             return annotation
         }
         

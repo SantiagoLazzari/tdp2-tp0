@@ -9,20 +9,20 @@
 import UIKit
 
 protocol VDPRouter {
-    func routeToVDP(from: HomeViewController)
+    func routeToVDP(from: HomeViewController, healthProvider: HealthProvider)
 }
 
 class VDPAppRouter: VDPRouter {
     
     let view = VDPViewController()
     
-    func routeToVDP(from: HomeViewController) {
+    func routeToVDP(from: HomeViewController, healthProvider: HealthProvider) {
         let service = VDPRemoteService()
         let presenter = VDPPresenter(with: view, service: service, router: self)
         view.presenter = presenter
+        view.healthProvider = healthProvider
         
         let navigation = UINavigationController(rootViewController: view)
-        
         
         from.present(navigation, animated: true, completion: nil)
     }

@@ -13,14 +13,14 @@ import UIKit
 
 struct HealthProvider: Codable {
     let id: Int
-    let phone: String
-    let name: String
-    let providerType: String
-    let languages: String
-    let medicalPlanAccepted: String
-    let latitude: String
-    let longitude: String
-    let address: String
+    let phone: String?
+    let name: String?
+    let providerType: String?
+    let languages: String?
+    let medicalPlanAccepted: String?
+    let latitude: String?
+    let longitude: String?
+    let address: String?
 
     
     enum CodingKeys: String, CodingKey {

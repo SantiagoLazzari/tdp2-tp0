@@ -27,6 +27,7 @@ enum Path:String {
     case signUp = "sign_up/"
     case healthProviders = "health_providers/"
     case search = "search/"
+    case authorizations = "authorizations/"
 }
 
 class Headers {
