@@ -11,7 +11,8 @@ import SkyFloatingLabelTextField
 
 
 protocol LoginView: DialogView {
-    
+    func startLoading()
+    func stopLoading()
 }
 
 class LoginViewController: ViewController {
@@ -22,6 +23,9 @@ class LoginViewController: ViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var identificationTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
+    
+    var activityInicator: MyHealthAppActivityIndicator?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +44,9 @@ class LoginViewController: ViewController {
             loginButton.layer.masksToBounds = true
             loginButton.layer.cornerRadius = 8
             passwordTextField.isSecureTextEntry = true
+            
+            activityInicator = MyHealthAppActivityIndicator(into: view)
+
         }
         
         setupUI()
@@ -77,5 +84,12 @@ class LoginViewController: ViewController {
 }
 
 extension LoginViewController: LoginView {
+    func startLoading() {
+        activityInicator?.play()
+    }
+    
+    func stopLoading() {
+        activityInicator?.pause()
+    }
     
 }

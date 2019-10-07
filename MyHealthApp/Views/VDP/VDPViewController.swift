@@ -9,7 +9,8 @@
 import UIKit
 
 protocol VDPView: NSObject {
-    
+    func startLoading()
+    func stopLoading()
 }
 
 class VDPViewController: ViewController {
@@ -22,9 +23,15 @@ class VDPViewController: ViewController {
     @IBOutlet weak var confirmButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var selectedSpecialty = Specialities.specialities.first
+    
+    var activityInicator: MyHealthAppActivityIndicator?
+    var specialtyPicker: UIPickerView?
     
     var presenter: VDPPresenter?
     var healthProvider: HealthProvider?
+    
+    var image: UIImage?
 
     
     override func viewDidLoad() {
@@ -41,7 +48,24 @@ class VDPViewController: ViewController {
             confirmButton.layer.cornerRadius = 8
             
             navigationItem.title = "Solicitud de autorizacion"
+            presriptionButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
             makeDismissable()
+            
+            let gr = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            
+            view.addGestureRecognizer(gr)
+            activityInicator = MyHealthAppActivityIndicator(into: view)
+            
+            
+            func setupPickerView() {
+                specialtyPicker = UIPickerView()
+                specialityTextField.inputView = specialtyPicker
+                specialtyPicker?.dataSource = self
+                specialtyPicker?.delegate = self
+                specialityTextField.text = selectedSpecialty?.name
+            }
+            
+            setupPickerView()
         }
         
         func setupHealthProvider() {
@@ -55,6 +79,12 @@ class VDPViewController: ViewController {
         setupUI()
     }
     
+    @objc func dismissKeyboard() {
+        specialityTextField.endEditing(true)
+        studySpecificationTextField.endEditing(true)
+    }
+
+    
     @IBAction func prescriptionButtonWasTapped(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
             imagePicker.delegate = self
@@ -67,19 +97,57 @@ class VDPViewController: ViewController {
     }
     
     @IBAction func confirmButtonWasTapped(_ sender: Any) {
-        
+        let authorization = AuthorizationPost(image: image, specialty: selectedSpecialty!, healthProvider: healthProvider!, specifications: "nada")
+     
+        presenter?.send(authorization: authorization)
+    }
+    
+    @IBAction func deleteImageButtonWasTapped(_ sender: Any) {
+        image = nil
+        presriptionButton.setImage(nil, for: .normal)
     }
 }
 
 extension VDPViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var image = info[.originalImage] as! UIImage
-        image = image.resizableImage(withCapInsets: presriptionButton.contentEdgeInsets, resizingMode: .stretch)
+//        image = image.resizableImage(withCapInsets: presriptionButton.contentEdgeInsets, resizingMode: .stretch)
+        presriptionButton.imageView?.contentMode = .scaleAspectFit
         presriptionButton.setImage(image, for: .normal)
+        
+        self.image = image
         picker.dismiss(animated: true, completion: nil)
     }
 }
 
 extension VDPViewController: VDPView {
+    func startLoading() {
+        activityInicator?.play()
+    }
     
+    func stopLoading() {
+        activityInicator?.pause()
+    }
+}
+
+
+extension VDPViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    //MARK: Data Sources
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Specialities.specialities.count
+    }
+    
+    //MARK: Delegates
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Specialities.specialities[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        specialityTextField.text = Specialities.specialities[row].name
+        selectedSpecialty = Specialities.specialities[row]
+    }
 }

@@ -8,6 +8,13 @@
 
 import UIKit
 
+struct AuthorizationPost {
+    var image: UIImage?
+    let specialty: Specialty
+    let healthProvider: HealthProvider
+    let specifications: String?
+}
+
 enum AuthorizationState: String, Codable {
     case requested = "requested"
     case evaluation = "evaluation"

@@ -58,7 +58,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-Gn-A67">
-                    <rect key="frame" x="16" y="251" width="382" height="256"/>
+                    <rect key="frame" x="8" y="251" width="398" height="256"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="256" id="829-Wt-2SA"/>
@@ -81,11 +81,20 @@
                         <action selector="confirmButtonWasTapped:" destination="-1" eventType="touchUpInside" id="vmU-1w-WQK"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6d-td-Sze">
+                    <rect key="frame" x="8" y="515" width="97" height="30"/>
+                    <state key="normal" title="Borrar imagen">
+                        <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="deleteImageButtonWasTapped:" destination="-1" eventType="touchUpInside" id="fdJ-SK-KGa"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="3BK-qo-hed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="26W-tF-rU7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vSd-Gn-A67" secondAttribute="trailing" constant="16" id="4K6-9O-cNY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vSd-Gn-A67" secondAttribute="trailing" constant="8" id="4K6-9O-cNY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TNM-2U-33W" secondAttribute="trailing" constant="8" id="83w-8C-rgD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b4J-ec-d89" secondAttribute="trailing" constant="8" id="9Qk-0z-xvW"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="top" secondItem="3BK-qo-hed" secondAttribute="bottom" constant="8" id="BPU-xL-MW6"/>
@@ -97,8 +106,10 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FyT-1e-UTD" secondAttribute="trailing" constant="8" id="KjZ-R8-Km3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DaU-ie-amC" secondAttribute="bottom" constant="8" id="L0m-vO-odN"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Q5p-Pg-4cC"/>
-                <constraint firstItem="vSd-Gn-A67" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Tjl-IJ-rgL"/>
+                <constraint firstItem="vSd-Gn-A67" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Tjl-IJ-rgL"/>
+                <constraint firstItem="M6d-td-Sze" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="ULB-o7-lN6"/>
                 <constraint firstItem="TNM-2U-33W" firstAttribute="top" secondItem="b4J-ec-d89" secondAttribute="bottom" constant="8" id="dzy-z4-29n"/>
+                <constraint firstItem="M6d-td-Sze" firstAttribute="top" secondItem="vSd-Gn-A67" secondAttribute="bottom" constant="8" id="kkS-SE-FDj"/>
                 <constraint firstItem="2nR-Kq-mJZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="laT-SG-uxZ"/>
                 <constraint firstItem="FyT-1e-UTD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="nj7-J5-9n8"/>
                 <constraint firstItem="2nR-Kq-mJZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="oa9-N1-JI0"/>

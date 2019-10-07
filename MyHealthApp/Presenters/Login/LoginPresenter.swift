@@ -29,9 +29,13 @@ class LoginPresenter: NSObject {
             return
         }
         
+        view.startLoading()
+        
         service.login(candidate: UserCandidate(identification: identification, password: password), success: { [weak self] in
+            self?.view.stopLoading()
             self?.router.routeToHome()
         }) { [weak self](error) in
+            self?.view.stopLoading()
             self?.view.show(dialog: "Dni y contraseña no coinciden", subtitle: "Dni y contraseña no coinciden")
         }
     }

@@ -19,9 +19,12 @@ class MyAuthorizationsPresenter: NSObject {
     }
     
     func fetch() {
+        view.startLoading()
         service.getAuthorizations(success: { (authorizations) in
+            self.view.stopLoading()
             self.view.show(authorizations: authorizations)
         }) { (error) in
+            self.view.stopLoading()
             self.view.show(error: error)
         }
     }

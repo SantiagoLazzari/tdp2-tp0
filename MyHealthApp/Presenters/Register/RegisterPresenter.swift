@@ -21,9 +21,13 @@ class RegisterPresenter: NSObject {
     }
     
     func register(user: User) {
+        view.startLoading()
         service.register(user: user, success: {
+            self.view.stopLoading()
             self.router.routeToHome()
         }) { (error) in
+            self.view.stopLoading()
+            
             self.router.routeToHome()
         }
     }

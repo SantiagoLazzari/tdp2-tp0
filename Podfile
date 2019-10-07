@@ -7,6 +7,7 @@ target 'MyHealthApp' do
 
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'lottie-ios', '~> 2.5'
+  pod 'Alamofire'
   
   target 'MyHealthAppTests' do
     inherit! :search_paths

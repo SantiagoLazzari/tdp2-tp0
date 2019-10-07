@@ -11,6 +11,8 @@ import UIKit
 import SkyFloatingLabelTextField
 
 protocol RegisterView {
+    func startLoading()
+    func stopLoading()
     func controller() -> UIViewController
 }
 
@@ -26,6 +28,8 @@ class RegisterViewController: ViewController {
     @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var NameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var registerButton: UIButton!
+    
+    var activityInicator: MyHealthAppActivityIndicator?
     
     var presenter: RegisterPresenter?
     
@@ -51,14 +55,14 @@ class RegisterViewController: ViewController {
         func setupUI() {
             registerButton.layer.masksToBounds = true
             registerButton.layer.cornerRadius = 8
+            
+            activityInicator = MyHealthAppActivityIndicator(into: view)
         }
         
         setupNavigationBar()
         setupUI()
     }
 
-
-    
     @IBAction func registerButtonWasTapped(_ sender: Any) {
         guard let id = Int(identificationTextField.text!) else {
             identificationTextField.errorMessage = "Ingresá DNI"
@@ -159,6 +163,15 @@ class RegisterViewController: ViewController {
 }
 
 extension RegisterViewController: RegisterView {
+    
+    func startLoading() {
+        activityInicator?.play()
+    }
+    
+    func stopLoading() {
+        activityInicator?.pause()
+    }
+    
     func controller() -> UIViewController {
         return self
     }

@@ -10,6 +10,7 @@ import UIKit
 
 protocol VDPRouter {
     func routeToVDP(from: HomeViewController, healthProvider: HealthProvider)
+    func routeToHome()
 }
 
 class VDPAppRouter: VDPRouter {
@@ -25,6 +26,10 @@ class VDPAppRouter: VDPRouter {
         let navigation = UINavigationController(rootViewController: view)
         
         from.present(navigation, animated: true, completion: nil)
+    }
+    
+    func routeToHome() {
+        view.dismiss(animated: true, completion: nil)
     }
     
 }

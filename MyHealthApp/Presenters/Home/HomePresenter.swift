@@ -82,14 +82,17 @@ class HomePresenter: NSObject {
     }
 
     func fetch(filters: HomeFilters) {
+        view.startLoading()
         service.getHealthProviders(filters: filters, success: { [weak self] (healthProviders) in
             if healthProviders.count == 0 {
                 self?.view.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
             }
             
+            self?.view.stopLoading()
+            
             self?.view.show(healthProviders: healthProviders)
         }) { (error) in
-            
+            self.view.stopLoading()
         }
     }
     

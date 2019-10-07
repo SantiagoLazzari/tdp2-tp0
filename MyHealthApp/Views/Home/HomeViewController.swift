@@ -16,6 +16,10 @@ protocol HomeView {
     func show(alertWith title: String, subtitle: String)
     func freeze()
     func unfreeze()
+    
+    func startLoading()
+    func stopLoading()
+
 }
 
 class HomeViewController: ViewController {
@@ -24,8 +28,15 @@ class HomeViewController: ViewController {
         var healthProvider: HealthProvider?
     }
 
+    @IBOutlet weak var specialtyTextField: UITextField!
     @IBOutlet weak var myAccountButton: UIButton!
     @IBOutlet weak var searchAreaButton: UIButton!
+    
+    var activityInicator: MyHealthAppActivityIndicator?
+    var selectedSpecialty = Specialities.specialities.first
+    var specialtyPicker: UIPickerView?
+
+
 
     var presenter: HomePresenter?
     var healthProvider: [HealthProvider]?
@@ -49,6 +60,28 @@ class HomeViewController: ViewController {
             searchAreaButton.layer.masksToBounds = true
             searchAreaButton.layer.cornerRadius = 8
             searchAreaButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            myAccountButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
+            myAccountButton.layer.masksToBounds = true
+            myAccountButton.layer.cornerRadius = 8
+            
+            activityInicator = MyHealthAppActivityIndicator(into: view)
+            
+            let gr = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            
+            view.addGestureRecognizer(gr)
+            activityInicator = MyHealthAppActivityIndicator(into: view)
+            
+            func setupPickerView() {
+                selectedSpecialty = Specialities.specialities.first
+                specialtyPicker = UIPickerView()
+                specialtyTextField.inputView = specialtyPicker
+                specialtyPicker?.dataSource = self
+                specialtyPicker?.delegate = self
+                specialtyTextField.text = selectedSpecialty?.name
+            }
+
+            setupPickerView()
+            
         }
         
         setupMapView()
@@ -60,8 +93,12 @@ class HomeViewController: ViewController {
     
     @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
         // TODO: Remove Speciality
-        let filters = HomeFilters(range: getRadius()/1000, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude, specialty: Specialities.specialities.first)
+        let filters = HomeFilters(range: getRadius()/1000, latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude, specialty: selectedSpecialty)
         presenter?.fetch(filters: filters)
+    }
+    
+    @objc func dismissKeyboard() {
+        specialtyTextField.endEditing(true)
     }
 
     func getRadius() -> Int {
@@ -88,6 +125,17 @@ class HomeViewController: ViewController {
 }
 
 extension HomeViewController: HomeView {
+    
+    func startLoading() {
+        activityInicator?.play()
+    }
+    
+    func stopLoading() {
+        activityInicator?.pause()
+    }
+    
+
+    
     func freeze() {
     }
     
@@ -130,5 +178,27 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let healthProviderAnnotation = view.annotation as! HealthProviderAnnotation
         presenter?.presentVDP(healthProvider: healthProviderAnnotation.healthProvider!)
+    }
+}
+
+
+extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    //MARK: Data Sources
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Specialities.specialities.count
+    }
+    
+    //MARK: Delegates
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Specialities.specialities[row].name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        specialtyTextField.text = Specialities.specialities[row].name
+        selectedSpecialty = Specialities.specialities[row]
     }
 }

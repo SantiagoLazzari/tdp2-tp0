@@ -20,11 +20,14 @@ class VDPPresenter: NSObject {
         self.router = router
     }
 
-    func send(authorization: Authorization) {
-        service.send(authorization: authorization, success: {
-            
-        }) { (error) in
-            
+    func send(authorization: AuthorizationPost) {
+        view.startLoading()
+        service.send(authorization: authorization, success: { [weak self] in
+            self?.router.routeToHome()
+            self?.view.stopLoading()
+        }) { [weak self] (error) in
+            print("failure")
+           self?.view.stopLoading()
         }
     }
     
