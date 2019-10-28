@@ -35,7 +35,6 @@ class MyAuthorizationsViewController: ViewController {
     func setup() {
         func setupUI() {
             navigationItem.title = "Mis Autorizaciones"
-            makeDismissable()
             
             activityInicator = MyHealthAppActivityIndicator(into: view)
             

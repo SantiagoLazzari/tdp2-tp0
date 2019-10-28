@@ -49,7 +49,6 @@ class VDPViewController: ViewController {
             
             navigationItem.title = "Solicitud de autorizacion"
             presriptionButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-            makeDismissable()
             
             let gr = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
             

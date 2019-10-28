@@ -28,9 +28,19 @@ struct UserCandidate: Codable {
     }
 }
 
+struct MedicalPlan: Codable {
+    let id: Int
+    let number: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case number = "number"
+    }
+}
+
 struct User: Codable {
     let identification: Int
-    let medicalPlan: Int
+    let medicalPlan: MedicalPlan
     let email: String
     let name: String
     let lastName: String
@@ -42,7 +52,7 @@ struct User: Codable {
     
     enum CodingKeys: String, CodingKey {
         case identification = "document_number"
-        case medicalPlan = "medical_plan_number"
+        case medicalPlan = "medical_plan"
         case email = "email"
         case name = "first_name"
         case lastName = "last_name"

@@ -19,15 +19,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func makeDismissable() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "X", style: .plain, target: self, action: #selector(dismissButtonWasTapped))
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "close_icon"), style: .plain, target: self, action: #selector(dismissButtonWasTapped))
-    }
-    
-    @objc func dismissButtonWasTapped() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     func show(dialog withTitle: String, subtitle: String) {
         let alert = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
         

@@ -14,6 +14,8 @@ import MapKit
 protocol HomeView {
     func show(healthProviders: [HealthProvider])
     func show(alertWith title: String, subtitle: String)
+    func showZPR()
+    func hideZPR()
     func freeze()
     func unfreeze()
     
@@ -29,7 +31,6 @@ class HomeViewController: ViewController {
     }
 
     @IBOutlet weak var specialtyTextField: UITextField!
-    @IBOutlet weak var myAccountButton: UIButton!
     @IBOutlet weak var searchAreaButton: UIButton!
     
     var activityInicator: MyHealthAppActivityIndicator?
@@ -45,11 +46,12 @@ class HomeViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         setup()
     }
     
     func setup() {
+        
         func setupMapView() {
             mapView.showsUserLocation = true
             mapView.userTrackingMode = .follow
@@ -63,18 +65,10 @@ class HomeViewController: ViewController {
             searchAreaButton.layer.borderColor = UIColor.lightGray.cgColor
             searchAreaButton.layer.borderWidth = 1
 
-            
-            myAccountButton.contentEdgeInsets = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-            myAccountButton.layer.masksToBounds = true
-            myAccountButton.layer.cornerRadius = 8
-            myAccountButton.layer.borderColor = UIColor.lightGray.cgColor
-            myAccountButton.layer.borderWidth = 1
-
             specialtyTextField.layer.borderColor = UIColor.lightGray.cgColor
             specialtyTextField.layer.borderWidth = 1            
             specialtyTextField.layer.masksToBounds = true
             specialtyTextField.layer.cornerRadius = 8
-
             
             activityInicator = MyHealthAppActivityIndicator(into: view)
             
@@ -109,9 +103,6 @@ class HomeViewController: ViewController {
         
         setupMapView()
         setupUI()
-    }
-    @IBAction func myAccountButtonWasTapped(_ sender: Any) {
-        presenter?.presentMyAccount()
     }
     
     @IBAction func searchAreaButtonWasTapped(_ sender: Any) {
@@ -148,7 +139,14 @@ class HomeViewController: ViewController {
 }
 
 extension HomeViewController: HomeView {
+    func hideZPR() {
+        
+    }
     
+    func showZPR() {
+        self.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
+    }
+
     func startLoading() {
         activityInicator?.play()
     }
@@ -200,9 +198,10 @@ extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let healthProviderAnnotation = view.annotation as! HealthProviderAnnotation
-
         
+        guard let healthProviderAnnotation = view.annotation as? HealthProviderAnnotation else {
+            return
+        }
         
         presenter?.presentVDP(healthProvider: healthProviderAnnotation.healthProvider!)
     }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MyHealthApp" customModuleProvider="target">
             <connections>
                 <outlet property="mapView" destination="eb8-kF-l99" id="nGG-pv-QN3"/>
-                <outlet property="myAccountButton" destination="9Xt-NY-2og" id="k0z-lc-Tq2"/>
                 <outlet property="searchAreaButton" destination="B5y-C8-hQ5" id="XQd-RA-pW8"/>
                 <outlet property="specialtyTextField" destination="Ebh-Rq-3zS" id="FHe-jw-8Cq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -37,25 +34,12 @@
                         <action selector="searchAreaButtonWasTapped:" destination="-1" eventType="touchUpInside" id="GHD-2u-hiY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xt-NY-2og">
-                    <rect key="frame" x="370" y="69" width="36" height="36"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.82199807359999999" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="1ma-7O-fWr"/>
-                        <constraint firstAttribute="width" constant="36" id="CGg-gl-6lY"/>
-                    </constraints>
-                    <state key="normal" image="user_icon"/>
-                    <connections>
-                        <action selector="myAccountButtonWasTapped:" destination="-1" eventType="touchUpInside" id="Hiq-V9-Pkf"/>
-                    </connections>
-                </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebh-Rq-3zS">
-                    <rect key="frame" x="132" y="107" width="150" height="30"/>
+                    <rect key="frame" x="132" y="107" width="150" height="34"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.82199807359999999" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="37b-a1-1jD"/>
                     </constraints>
-                    <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
@@ -63,20 +47,16 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="eb8-kF-l99" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2bd-0t-5NF"/>
-                <constraint firstItem="9Xt-NY-2og" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="3iZ-mq-iih"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eb8-kF-l99" secondAttribute="bottom" id="94h-Ox-waR"/>
                 <constraint firstItem="Ebh-Rq-3zS" firstAttribute="top" secondItem="B5y-C8-hQ5" secondAttribute="bottom" constant="8" id="9vK-XL-Jvm"/>
                 <constraint firstItem="eb8-kF-l99" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BzI-Cn-x4o"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eb8-kF-l99" secondAttribute="trailing" id="I3m-Eb-NR5"/>
                 <constraint firstItem="Ebh-Rq-3zS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Jha-g1-4Pr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9Xt-NY-2og" secondAttribute="trailing" constant="8" id="O8K-I0-sNp"/>
                 <constraint firstItem="B5y-C8-hQ5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OrK-YU-OzQ"/>
                 <constraint firstItem="B5y-C8-hQ5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="oYj-Jq-C6o"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="98"/>
         </view>
     </objects>
-    <resources>
-        <image name="user_icon" width="50" height="50"/>
-    </resources>
 </document>

@@ -13,6 +13,13 @@
 		6A3B39A8233C3280009A891A /* VDPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A3B39A6233C3280009A891A /* VDPViewController.xib */; };
 		6A3B39AA233C3292009A891A /* VDPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B39A9233C3292009A891A /* VDPPresenter.swift */; };
 		6A64572D230DEFBF009055F5 /* candfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A64572C230DEFBF009055F5 /* candfTests.swift */; };
+		6A74029A23667A2900719989 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A74029923667A2900719989 /* GoogleService-Info.plist */; };
+		6A74029E236686E900719989 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A74029C236686E900719989 /* HomeTabBarController.swift */; };
+		6A74029F236686E900719989 /* HomeTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A74029D236686E900719989 /* HomeTabBarController.xib */; };
+		6A7402A22366881F00719989 /* ListHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7402A02366881F00719989 /* ListHomeViewController.swift */; };
+		6A7402A32366881F00719989 /* ListHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7402A12366881F00719989 /* ListHomeViewController.xib */; };
+		6A7402A623669D3700719989 /* ListHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7402A423669D3700719989 /* ListHomeTableViewCell.swift */; };
+		6A7402A723669D3700719989 /* ListHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A7402A523669D3700719989 /* ListHomeTableViewCell.xib */; };
 		6A76FC9023394B0A005BBF75 /* RegisterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC8F23394B0A005BBF75 /* RegisterPresenter.swift */; };
 		6A76FC9723396BF3005BBF75 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC9223396BF3005BBF75 /* InputValidator.swift */; };
 		6A76FC9823396BF3005BBF75 /* EmailInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC9323396BF3005BBF75 /* EmailInputValidator.swift */; };
@@ -82,6 +89,14 @@
 		6A645728230DEFBF009055F5 /* MyHealthAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHealthAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A64572C230DEFBF009055F5 /* candfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = candfTests.swift; sourceTree = "<group>"; };
 		6A64572E230DEFBF009055F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A74029923667A2900719989 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6A74029B2366830200719989 /* MyHealthApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyHealthApp.entitlements; sourceTree = "<group>"; };
+		6A74029C236686E900719989 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		6A74029D236686E900719989 /* HomeTabBarController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTabBarController.xib; sourceTree = "<group>"; };
+		6A7402A02366881F00719989 /* ListHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHomeViewController.swift; sourceTree = "<group>"; };
+		6A7402A12366881F00719989 /* ListHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListHomeViewController.xib; sourceTree = "<group>"; };
+		6A7402A423669D3700719989 /* ListHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHomeTableViewCell.swift; sourceTree = "<group>"; };
+		6A7402A523669D3700719989 /* ListHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListHomeTableViewCell.xib; sourceTree = "<group>"; };
 		6A76FC8F23394B0A005BBF75 /* RegisterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPresenter.swift; sourceTree = "<group>"; };
 		6A76FC9223396BF3005BBF75 /* InputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		6A76FC9323396BF3005BBF75 /* EmailInputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailInputValidator.swift; sourceTree = "<group>"; };
@@ -274,6 +289,8 @@
 		6ACCB13B232EAD040060A340 /* MyHealthApp */ = {
 			isa = PBXGroup;
 			children = (
+				6A74029B2366830200719989 /* MyHealthApp.entitlements */,
+				6A74029923667A2900719989 /* GoogleService-Info.plist */,
 				6AEDE226234BAD3800BDE107 /* lottie-search.json */,
 				6ACCB173232EBAA50060A340 /* Routers */,
 				6ACCB13D232EAD040060A340 /* Models */,
@@ -337,6 +354,12 @@
 			children = (
 				6ACCB149232EAD040060A340 /* HomeViewController.swift */,
 				6ACCB148232EAD040060A340 /* HomeViewController.xib */,
+				6A7402A02366881F00719989 /* ListHomeViewController.swift */,
+				6A7402A12366881F00719989 /* ListHomeViewController.xib */,
+				6A7402A423669D3700719989 /* ListHomeTableViewCell.swift */,
+				6A7402A523669D3700719989 /* ListHomeTableViewCell.xib */,
+				6A74029C236686E900719989 /* HomeTabBarController.swift */,
+				6A74029D236686E900719989 /* HomeTabBarController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -621,14 +644,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7402A723669D3700719989 /* ListHomeTableViewCell.xib in Resources */,
 				6ACCB170232EAF280060A340 /* LoginViewController.xib in Resources */,
 				6ACCB184232FFEF40060A340 /* RegisterViewController.xib in Resources */,
 				6ACCB15A232EAD040060A340 /* Assets.xcassets in Resources */,
 				6AEDE200234AC91200BDE107 /* MyAccountViewController.xib in Resources */,
 				6AEDE227234BAD3800BDE107 /* lottie-search.json in Resources */,
 				6AEDE211234ADBAC00BDE107 /* MyAuthorizationsViewController.xib in Resources */,
+				6A7402A32366881F00719989 /* ListHomeViewController.xib in Resources */,
+				6A74029F236686E900719989 /* HomeTabBarController.xib in Resources */,
 				6ACCB15C232EAD040060A340 /* LaunchScreen.storyboard in Resources */,
 				6AEDE219234AE38000BDE107 /* MyAutorizationTableViewCell.xib in Resources */,
+				6A74029A23667A2900719989 /* GoogleService-Info.plist in Resources */,
 				6ACCB15F232EAD040060A340 /* HomeViewController.xib in Resources */,
 				6A3B39A8233C3280009A891A /* VDPViewController.xib in Resources */,
 			);
@@ -714,6 +741,7 @@
 			files = (
 				6ACBD32D234A88F9004C7D61 /* Specialty.swift in Sources */,
 				6ACCB16F232EAF280060A340 /* LoginViewController.swift in Sources */,
+				6A7402A623669D3700719989 /* ListHomeTableViewCell.swift in Sources */,
 				6ACCB163232EAD040060A340 /* HomeService.swift in Sources */,
 				6AEDE206234AC94100BDE107 /* MyAccountPresenter.swift in Sources */,
 				6ACCB17C232EC23B0060A340 /* HealthProvider.swift in Sources */,
@@ -729,7 +757,9 @@
 				6ACCB167232EAD040060A340 /* LoginRemoteService.swift in Sources */,
 				6ACCB179232EC01C0060A340 /* User.swift in Sources */,
 				6AEDE218234AE38000BDE107 /* MyAutorizationTableViewCell.swift in Sources */,
+				6A74029E236686E900719989 /* HomeTabBarController.swift in Sources */,
 				6ACBD346234AC868004C7D61 /* MyAccountRouter.swift in Sources */,
+				6A7402A22366881F00719989 /* ListHomeViewController.swift in Sources */,
 				6ACBD32B234A7DD4004C7D61 /* HomeRouter.swift in Sources */,
 				6AEDE210234ADBAC00BDE107 /* MyAuthorizationsViewController.swift in Sources */,
 				6ACCB183232FFEF40060A340 /* RegisterViewController.swift in Sources */,
@@ -904,14 +934,15 @@
 			baseConfigurationReference = FF80B0B98BA7987742F173E4 /* Pods-MyHealthApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyHealthApp/MyHealthApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JS3J3XY589;
+				DEVELOPMENT_TEAM = Y8MVXZDBG2;
 				INFOPLIST_FILE = "$(SRCROOT)/MyHealthApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.myhealthapp.myhealthapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myhealthapp.health;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -923,14 +954,15 @@
 			baseConfigurationReference = 5623F511A5808B42C20BC011 /* Pods-MyHealthApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MyHealthApp/MyHealthApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JS3J3XY589;
+				DEVELOPMENT_TEAM = Y8MVXZDBG2;
 				INFOPLIST_FILE = "$(SRCROOT)/MyHealthApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.myhealthapp.myhealthapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myhealthapp.health;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

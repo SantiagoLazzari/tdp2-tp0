@@ -28,6 +28,7 @@ enum Path:String {
     case healthProviders = "health_providers/"
     case search = "search/"
     case authorizations = "authorizations/"
+    case usersMe = "users/me/"
 }
 
 class Headers {
@@ -90,6 +91,22 @@ extension Service {
 }
 
 extension Service {
+    func patch<Request:Encodable, Response:Decodable>(path: String, body: Request, success: @escaping ServiceSuccess<Response>, failure: @escaping ServiceFailure) {
+        let body = try! JSONEncoder().encode(body)
+        
+        let request = NSMutableURLRequest(url: NSURL(string: path)! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "PATCH"
+        request.allHTTPHeaderFields = Headers.get()
+        request.httpBody = body
+        
+        call(request: request as URLRequest, success: success, failure: failure)
+    }
+}
+
+
+extension Service {
     func delete<Request:Encodable, Response:Decodable>(path: String, body: Request, success: @escaping ServiceSuccess<Response>, failure: @escaping ServiceFailure) {
         let body = try! JSONEncoder().encode(body)
         
@@ -103,6 +120,8 @@ extension Service {
         call(request: request as URLRequest, success: success, failure: failure)
     }
 }
+
+
 
 // Api Call
 extension Service {

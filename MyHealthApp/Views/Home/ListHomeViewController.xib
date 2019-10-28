@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListHomeViewController" customModule="MyHealthApp" customModuleProvider="target">
+            <connections>
+                <outlet property="radioLabel" destination="lwk-8m-Kea" id="9oe-W0-5TC"/>
+                <outlet property="radioSlider" destination="uGU-B5-cfX" id="Pxi-y2-NNG"/>
+                <outlet property="sadDoctorImageView" destination="Oxz-Og-Mcy" id="Z7P-0N-YRc"/>
+                <outlet property="specialtyTextField" destination="j6t-qv-l6Q" id="Cl8-Yk-2hI"/>
+                <outlet property="tableView" destination="pTh-uv-Izz" id="0HF-cf-Sfq"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zrpLabel" destination="kRV-VG-POL" id="EKt-t3-Dwr"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="plO-HZ-uu2">
+                    <rect key="frame" x="0.0" y="44" width="414" height="20"/>
+                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Xwj-PO-EKJ"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwk-8m-Kea">
+                    <rect key="frame" x="16" y="130" width="43.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uGU-B5-cfX">
+                    <rect key="frame" x="61" y="159" width="278.5" height="31"/>
+                </slider>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-uv-Izz">
+                    <rect key="frame" x="0.0" y="225" width="414" height="637"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cbw-4g-B4E">
+                    <rect key="frame" x="0.0" y="205" width="414" height="20"/>
+                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Gq3-x9-S32"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Traumatologia" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6t-qv-l6Q">
+                    <rect key="frame" x="16" y="80" width="120" height="34"/>
+                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXK-Cq-tUB">
+                    <rect key="frame" x="16" y="163.5" width="31" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiZ-Z9-YeB">
+                    <rect key="frame" x="353.5" y="163.5" width="44.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad_doctor_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Oxz-Og-Mcy">
+                    <rect key="frame" x="20" y="241" width="374" height="150"/>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="vbS-Zs-jhs"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No hay doctores de  traumatologia a menos de 6km" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRV-VG-POL">
+                    <rect key="frame" x="16" y="407" width="382" height="50.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yXK-Cq-tUB" firstAttribute="centerY" secondItem="uGU-B5-cfX" secondAttribute="centerY" id="137-ah-kYa"/>
+                <constraint firstItem="GiZ-Z9-YeB" firstAttribute="centerY" secondItem="uGU-B5-cfX" secondAttribute="centerY" id="57T-Hi-mBN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kRV-VG-POL" secondAttribute="trailing" constant="16" id="6wg-0l-CAk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Oxz-Og-Mcy" secondAttribute="trailing" constant="20" id="BfB-C0-0PH"/>
+                <constraint firstItem="lwk-8m-Kea" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ElC-5a-6WA"/>
+                <constraint firstItem="cbw-4g-B4E" firstAttribute="top" secondItem="uGU-B5-cfX" secondAttribute="bottom" constant="16" id="I0H-aJ-brS"/>
+                <constraint firstItem="lwk-8m-Kea" firstAttribute="top" secondItem="j6t-qv-l6Q" secondAttribute="bottom" constant="16" id="Ix7-bK-4tC"/>
+                <constraint firstItem="cbw-4g-B4E" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Jlh-GL-8qN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pTh-uv-Izz" secondAttribute="trailing" id="JxA-63-B6P"/>
+                <constraint firstItem="plO-HZ-uu2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kks-ds-mIH"/>
+                <constraint firstItem="yXK-Cq-tUB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="L9x-kH-3rB"/>
+                <constraint firstItem="pTh-uv-Izz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ld9-ov-FQJ"/>
+                <constraint firstItem="GiZ-Z9-YeB" firstAttribute="leading" secondItem="uGU-B5-cfX" secondAttribute="trailing" constant="16" id="N9Y-ct-o3v"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="plO-HZ-uu2" secondAttribute="trailing" id="Ow2-SH-jt7"/>
+                <constraint firstItem="uGU-B5-cfX" firstAttribute="leading" secondItem="yXK-Cq-tUB" secondAttribute="trailing" constant="16" id="SGB-P0-iKC"/>
+                <constraint firstItem="cbw-4g-B4E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZNu-Dc-wrx"/>
+                <constraint firstItem="kRV-VG-POL" firstAttribute="top" secondItem="Oxz-Og-Mcy" secondAttribute="bottom" constant="16" id="akz-1E-kCo"/>
+                <constraint firstItem="pTh-uv-Izz" firstAttribute="top" secondItem="cbw-4g-B4E" secondAttribute="bottom" id="beq-ES-dh7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pTh-uv-Izz" secondAttribute="bottom" id="bin-rh-Ijb"/>
+                <constraint firstItem="uGU-B5-cfX" firstAttribute="top" secondItem="lwk-8m-Kea" secondAttribute="bottom" constant="8" id="diz-ei-7YV"/>
+                <constraint firstItem="Oxz-Og-Mcy" firstAttribute="top" secondItem="cbw-4g-B4E" secondAttribute="bottom" constant="16" id="eeU-pa-JQe"/>
+                <constraint firstItem="plO-HZ-uu2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="icc-pM-XgD"/>
+                <constraint firstItem="j6t-qv-l6Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="l4o-g3-ddo"/>
+                <constraint firstItem="kRV-VG-POL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="mnG-iR-Q4Y"/>
+                <constraint firstItem="j6t-qv-l6Q" firstAttribute="top" secondItem="plO-HZ-uu2" secondAttribute="bottom" constant="16" id="nxj-S5-WGa"/>
+                <constraint firstItem="kRV-VG-POL" firstAttribute="centerX" secondItem="pTh-uv-Izz" secondAttribute="centerX" id="r1B-Ay-kqs"/>
+                <constraint firstItem="Oxz-Og-Mcy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="taL-I5-I2p"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GiZ-Z9-YeB" secondAttribute="trailing" constant="16" id="w8O-40-0jS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sad_doctor_icon" width="113.5" height="256"/>
+    </resources>
+</document>

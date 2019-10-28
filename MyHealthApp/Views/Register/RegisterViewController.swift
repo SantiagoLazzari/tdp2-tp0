@@ -33,12 +33,6 @@ class RegisterViewController: ViewController {
     
     var presenter: RegisterPresenter?
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -157,7 +151,7 @@ class RegisterViewController: ViewController {
         
         passwordTextField.errorMessage = nil
         
-        let user = User(identification: id, medicalPlan: plan, email: email, name: name, lastName: lastName, phone: phone, birthDate: birthDate, medicalPlanExpirationDate: expirationDate, password: password)
+        let user = User(identification: id, medicalPlan: MedicalPlan(id: 1, number: 310), email: email, name: name, lastName: lastName, phone: phone, birthDate: birthDate, medicalPlanExpirationDate: expirationDate, password: password)
         presenter?.register(user: user)
     }
 }

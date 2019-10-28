@@ -20,8 +20,10 @@ class LoginAppRouter: LoginRouter {
         let service = LoginRemoteService()
         let presenter = LoginPresenter(view: view, service: service, router: self)
         view.presenter = presenter
-        
+               
         let navigation = UINavigationController(rootViewController: view)
+       
+        navigation.modalPresentationStyle = .fullScreen
         
         from.present(navigation, animated: false, completion: nil)
     }

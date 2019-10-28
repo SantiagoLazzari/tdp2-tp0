@@ -8,6 +8,11 @@
 
 import UIKit
 
+import FirebaseMessaging
+import Firebase
+import UserNotifications
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -19,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        setupFirebase(application: application)
+        
         let controller = UIViewController()
+        controller.modalPresentationStyle = .fullScreen
         
         CurrentUser.shared.refreshToken()
         
@@ -38,6 +46,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         return true
     }
+    
+    
+    func setupFirebase(application: UIApplication) {
+        FirebaseApp.configure()
+        
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+        Messaging.messaging().delegate = self
+        Messaging.messaging().shouldEstablishDirectChannel = true
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -60,6 +93,84 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+
+
+}
+
+
+extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        
+        handleNotification(userInfo: userInfo)
+        
+        completionHandler([])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        
+        handleNotification(userInfo: userInfo)
+
+        completionHandler()
+    }
+    
+    func handleNotification(userInfo: [AnyHashable:Any]) {
+        guard let notificationType = userInfo["notification_type"] else {
+            return
+        }
+        
+        guard let notificationData = userInfo["notification_data"] else {
+            return
+        }
+        
+//        let payload = JSON(parseJSON: String(describing: notificationData))
+        
+//        guard let type = NotificationType(rawValue: Int(String(describing: notificationType))!) else {
+//            return
+//        }
+        
+//        switch type {
+//        case NotificationType.congrats:
+//            let congratsController = CongratsViewController()
+//
+//            let price = payload["price"].floatValue
+//            let congratsTitle = String(format: NSLocalizedString("RESERVATION_COMPLETED_CONGRATS_MESSAGE", comment: ""), price)
+//
+//            let congratsPresenter = CongratsPresenter(view: congratsController, title: congratsTitle)
+//            congratsController.presenter = congratsPresenter
+//            congratsPresenter.presentView()
+//            break
+//        }
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        if CurrentUser.shared.getToken() != nil {
+            LoginRemoteService().register(deviceToken: fcmToken, success: {
+                print("atr")
+            }) { (error) in
+                print("caca")
+            }
+        }
+
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        
+    }
+    
+    func application(application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
 
 
 }

@@ -60,6 +60,8 @@ class HomePresenter: NSObject {
         monitor.start(queue: queue)
         
         setupUserLocation()
+        
+        
     }
     
     func enableBasicLocationServices() {
@@ -85,7 +87,9 @@ class HomePresenter: NSObject {
         view.startLoading()
         service.getHealthProviders(filters: filters, success: { [weak self] (healthProviders) in
             if healthProviders.count == 0 {
-                self?.view.show(alertWith: "Atención", subtitle: "No hay doctores cerca tuyo, probá buscando en otro area")
+                self?.view.showZPR()
+            } else {
+                self?.view.hideZPR()
             }
             
             self?.view.stopLoading()

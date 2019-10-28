@@ -17,18 +17,46 @@ protocol HomeRouter {
 
 class HomeAppRouter: HomeRouter {
     
-    let view = HomeViewController()
+    let mapView = HomeViewController()
+    let listView = ListHomeViewController()
+    let tabbar = HomeTabBarController()
     
     func routeToHome(from: UIViewController) {
-        let service = HomeRemoteService()
-        let presenter = HomePresenter(view: view, service: service, router: self)
-        view.presenter = presenter
+        let navItem = UIBarButtonItem(image: UIImage(named: "user_icon"), style: .plain, target: self, action: #selector(myAccountWasTapped))
+
+                
+        let mapService = HomeRemoteService()
+        let mapPresenter = HomePresenter(view: mapView, service: mapService, router: self)
+        mapView.presenter = mapPresenter
+        let mapNavigation = UINavigationController(rootViewController: mapView)
+        mapNavigation.navigationBar.tintColor = UIColor.black
+        let mapItem = UITabBarItem(title: nil, image: UIImage(named: "map_tabbar_icon"), tag: 0)
+        mapItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+
+        mapView.tabBarItem = mapItem
+        mapView.navigationItem.rightBarButtonItem = navItem
         
-        from.present(view, animated: true, completion: nil)
+        let listService = HomeRemoteService()
+        let listPresenter = HomePresenter(view: listView, service: listService, router: self)
+        listView.presenter = listPresenter
+        let listNavigation = UINavigationController(rootViewController: listView)
+        listNavigation.navigationBar.tintColor = UIColor.black
+        let listItem = UITabBarItem(title: nil, image: UIImage(named: "list_tabbar_icon"), tag: 0)
+        
+        listItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+
+        listView.tabBarItem = listItem
+        listView.navigationItem.rightBarButtonItem = navItem
+        
+        tabbar.modalPresentationStyle = .fullScreen
+        tabbar.viewControllers = [mapNavigation, listNavigation]
+        
+        
+        from.present(tabbar, animated: true, completion: nil)
     }
     
     func routeToVDP(healthProvider: HealthProvider) {
-        VDPAppRouter().routeToVDP(from: view, healthProvider: healthProvider)
+        VDPAppRouter().routeToVDP(from: tabbar, healthProvider: healthProvider)
     }
     
     func routeToLogin() {
@@ -36,6 +64,10 @@ class HomeAppRouter: HomeRouter {
     }
     
     func routeToMyAccount() {
-        MyAuthorizationsAppRouter().routeToMyAuthorizations(from: view)
+        MyAuthorizationsAppRouter().routeToMyAuthorizations(from: tabbar)
+    }
+    
+    @objc func myAccountWasTapped() {
+        routeToMyAccount()
     }
 }
