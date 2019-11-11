@@ -30,7 +30,9 @@ enum Path:String {
     case authorizations = "authorizations/"
     case usersMe = "users/me/"
     case studyTypes = "study_types/"
+    case specialties = "specialties/"
     case cancel = "cancel/"
+    
 }
 
 class Headers {

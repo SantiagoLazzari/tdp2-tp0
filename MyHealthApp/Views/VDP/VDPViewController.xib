@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +56,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-Gn-A67">
                     <rect key="frame" x="8" y="259" width="398" height="256"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" name="AppBlue"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="256" id="829-Wt-2SA"/>
                     </constraints>
@@ -66,7 +67,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DaU-ie-amC">
                     <rect key="frame" x="8" y="804" width="398" height="50"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" name="AppOrange"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="NAX-98-Yku"/>
                     </constraints>
@@ -87,7 +88,7 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="AppBlue"/>
             <constraints>
                 <constraint firstItem="3BK-qo-hed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="26W-tF-rU7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vSd-Gn-A67" secondAttribute="trailing" constant="8" id="4K6-9O-cNY"/>
@@ -118,5 +119,11 @@
     </objects>
     <resources>
         <image name="medical_prescription_icon" width="256" height="256"/>
+        <namedColor name="AppBlue">
+            <color red="0.68235294117647061" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="AppOrange">
+            <color red="1" green="0.70196078431372544" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

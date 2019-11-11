@@ -22,7 +22,7 @@ class HomeTabBarController: UITabBarController {
     }
 
     func setupUI() {
-        tabBar.tintColor = UIColor.black
+        tabBar.tintColor = UIColor(named: "AppOrange")
         modalPresentationStyle = .fullScreen
     }
 

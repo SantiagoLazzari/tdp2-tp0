@@ -26,7 +26,6 @@ struct StudyTypeResponse: Codable  {
     enum CodingKeys: String, CodingKey {
         case response = "response"
     }
-
 }
 
 struct Specialty: Codable {
@@ -38,3 +37,15 @@ struct Specialty: Codable {
         case id = "id"
     }
 }
+
+struct SpecialtiesResponse: Codable  {
+    
+    let response: [Specialty]
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "response"
+    }
+}
+
+
+

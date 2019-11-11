@@ -33,6 +33,7 @@ class HomePresenter: NSObject {
         
         self.setup()
         self.fetchStudyTypes()
+        self.fetchSpecialities()
     }
     
     func setup() {
@@ -104,10 +105,14 @@ class HomePresenter: NSObject {
         }
     }
     
-    func logout() {
-        router.routeToLogin()
+    func fetchSpecialities() {
+        service.getSpecialties(success: { (specialties) in
+            Specialities.specialities = specialties
+        }) { (error) in
+            
+        }
     }
-    
+        
     func presentVDP(healthProvider: HealthProvider) {
         router.routeToVDP(healthProvider: healthProvider)
     }
