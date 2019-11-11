@@ -32,6 +32,7 @@ class HomePresenter: NSObject {
         super.init()
         
         self.setup()
+        self.fetchStudyTypes()
     }
     
     func setup() {
@@ -49,19 +50,14 @@ class HomePresenter: NSObject {
                     self.view.unfreeze()
                 } else {
                     self.isConnected = false
-//                    self.view.freeze()
-//                    self.view.show(alertWith: "Atención", subtitle: "No hay internet, necesitas internet para usar la app")
                 }
-
             }
         }
-
+        
         let queue = DispatchQueue(label: "Monitor")
         monitor.start(queue: queue)
         
         setupUserLocation()
-        
-        
     }
     
     func enableBasicLocationServices() {
@@ -97,6 +93,14 @@ class HomePresenter: NSObject {
             self?.view.show(healthProviders: healthProviders)
         }) { (error) in
             self.view.stopLoading()
+        }
+    }
+    
+    func fetchStudyTypes() {
+        service.getStudyTypes(success: { (studyTypes) in
+            StudyTypes.studyTypes = studyTypes
+        }) { (error) in
+            
         }
     }
     

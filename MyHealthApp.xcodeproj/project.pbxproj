@@ -54,6 +54,7 @@
 		6ACCB180232ECD590060A340 /* RegisterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB17F232ECD590060A340 /* RegisterRouter.swift */; };
 		6ACCB183232FFEF40060A340 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACCB181232FFEF40060A340 /* RegisterViewController.swift */; };
 		6ACCB184232FFEF40060A340 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6ACCB182232FFEF40060A340 /* RegisterViewController.xib */; };
+		6AE25B772379B48F00F668FD /* StudyTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE25B762379B48F00F668FD /* StudyTypes.swift */; };
 		6AEDE200234AC91200BDE107 /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AEDE1FE234AC91200BDE107 /* MyAccountViewController.xib */; };
 		6AEDE201234AC91200BDE107 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDE1FF234AC91200BDE107 /* MyAccountViewController.swift */; };
 		6AEDE206234AC94100BDE107 /* MyAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEDE205234AC94100BDE107 /* MyAccountPresenter.swift */; };
@@ -132,6 +133,7 @@
 		6ACCB17F232ECD590060A340 /* RegisterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRouter.swift; sourceTree = "<group>"; };
 		6ACCB181232FFEF40060A340 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6ACCB182232FFEF40060A340 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		6AE25B762379B48F00F668FD /* StudyTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyTypes.swift; sourceTree = "<group>"; };
 		6AEDE1FE234AC91200BDE107 /* MyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAccountViewController.xib; sourceTree = "<group>"; };
 		6AEDE1FF234AC91200BDE107 /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
 		6AEDE205234AC94100BDE107 /* MyAccountPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountPresenter.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				6ACCB178232EC01C0060A340 /* User.swift */,
 				6ACBD32C234A88F9004C7D61 /* Specialty.swift */,
 				6ACBD32E234A8BB7004C7D61 /* Specialities.swift */,
+				6AE25B762379B48F00F668FD /* StudyTypes.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				6ACBD32F234A8BB7004C7D61 /* Specialities.swift in Sources */,
 				6ACCB167232EAD040060A340 /* LoginRemoteService.swift in Sources */,
 				6ACCB179232EC01C0060A340 /* User.swift in Sources */,
+				6AE25B772379B48F00F668FD /* StudyTypes.swift in Sources */,
 				6AEDE218234AE38000BDE107 /* MyAutorizationTableViewCell.swift in Sources */,
 				6A74029E236686E900719989 /* HomeTabBarController.swift in Sources */,
 				6ACBD346234AC868004C7D61 /* MyAccountRouter.swift in Sources */,

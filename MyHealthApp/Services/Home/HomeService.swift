@@ -21,9 +21,17 @@ struct HomeFilters {
 
 protocol HomeService {
     func getHealthProviders(filters: HomeFilters,  success: @escaping ServiceSuccess<[HealthProvider]>, failure: @escaping ServiceFailure)
+    func getStudyTypes(success: @escaping ServiceSuccess<[StudyType]>, failure: @escaping ServiceFailure)
 }
 
 class HomeRemoteService: HomeService {
+    func getStudyTypes(success: @escaping ServiceSuccess<[StudyType]>, failure: @escaping ServiceFailure) {
+        Service().get(path: getStudyTypesPath(), success: { (studyTypeResponse: StudyTypeResponse) in
+            success(studyTypeResponse.response)
+        }, failure: failure)
+
+    }
+    
 
     func getHealthProviders(filters: HomeFilters,  success: @escaping ServiceSuccess<[HealthProvider]>, failure: @escaping ServiceFailure)  {
         Service().get(path: getDoctorsPath(filters: filters), success: { (healthProviderResponse: HealthProviderResponse) in
@@ -40,5 +48,9 @@ class HomeRemoteService: HomeService {
         }
         
         return path + "&specialty_id=\(specialty.id)"
+    }
+    
+    func getStudyTypesPath() -> String {
+        return Path.base.rawValue +  Path.studyTypes.rawValue
     }
 }

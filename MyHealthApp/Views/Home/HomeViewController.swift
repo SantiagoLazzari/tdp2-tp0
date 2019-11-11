@@ -37,8 +37,6 @@ class HomeViewController: ViewController {
     var selectedSpecialty = Specialities.specialities.first
     var specialtyPicker: UIPickerView?
 
-
-
     var presenter: HomePresenter?
     var healthProvider: [HealthProvider]?
     
@@ -186,7 +184,6 @@ extension HomeViewController: HomeView {
             annotation.healthProvider = healthProvider
             annotation.coordinate = CLLocationCoordinate2D(latitude: Double(healthProvider.latitude!)!, longitude: Double(healthProvider.longitude!)!)
             return annotation
-            
         }
         
         mapView.addAnnotations(annotations)
@@ -197,6 +194,7 @@ extension HomeViewController: HomeView {
 extension HomeViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
     }
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         guard let healthProviderAnnotation = view.annotation as? HealthProviderAnnotation else {

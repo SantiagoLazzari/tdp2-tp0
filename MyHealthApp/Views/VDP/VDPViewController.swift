@@ -24,15 +24,16 @@ class VDPViewController: ViewController {
     
     var imagePicker = UIImagePickerController()
     var selectedSpecialty = Specialities.specialities.first
+    var selectedStudyType = StudyTypes.studyTypes.first
     
     var activityInicator: MyHealthAppActivityIndicator?
     var specialtyPicker: UIPickerView?
+    var studyTypePicker: UIPickerView?
     
     var presenter: VDPPresenter?
     var healthProvider: HealthProvider?
     
     var image: UIImage?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,13 @@ class VDPViewController: ViewController {
                 specialtyPicker?.dataSource = self
                 specialtyPicker?.delegate = self
                 specialityTextField.text = selectedSpecialty?.name
+                
+                
+                studyTypePicker = UIPickerView()
+                studySpecificationTextField.inputView = studyTypePicker
+                studyTypePicker?.dataSource = self
+                studyTypePicker?.delegate = self
+                studySpecificationTextField.text = selectedStudyType?.name
             }
             
             setupPickerView()
@@ -96,7 +104,7 @@ class VDPViewController: ViewController {
     }
     
     @IBAction func confirmButtonWasTapped(_ sender: Any) {
-        let authorization = AuthorizationPost(image: image, specialty: selectedSpecialty!, healthProvider: healthProvider!, specifications: "nada")
+        let authorization = AuthorizationPost(image: image, specialty: selectedSpecialty!, studyType: selectedStudyType!, healthProvider: healthProvider!, specifications: "nada")
      
         presenter?.send(authorization: authorization)
     }
@@ -137,16 +145,42 @@ extension VDPViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Specialities.specialities.count
+        if pickerView == specialtyPicker {
+            return Specialities.specialities.count
+        }
+        
+        if pickerView == studyTypePicker {
+            return StudyTypes.studyTypes.count
+        }
+        
+        return 0
     }
     
     //MARK: Delegates
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Specialities.specialities[row].name
+        
+        if pickerView == specialtyPicker {
+            return Specialities.specialities[row].name
+        }
+        
+        if pickerView == studyTypePicker {
+            return StudyTypes.studyTypes[row].name
+        }
+
+        
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        specialityTextField.text = Specialities.specialities[row].name
-        selectedSpecialty = Specialities.specialities[row]
+        
+        if pickerView == specialtyPicker {
+            specialityTextField.text = Specialities.specialities[row].name
+            selectedSpecialty = Specialities.specialities[row]
+        }
+        
+        if pickerView == studyTypePicker {
+            studySpecificationTextField.text = StudyTypes.studyTypes[row].name
+            selectedStudyType = StudyTypes.studyTypes[row]
+        }
     }
 }

@@ -22,13 +22,14 @@ typealias ServiceFailure = (HttpError) -> Void
 typealias ServiceSuccess<Element> = (Element) -> Void
 
 enum Path:String {
-    case base = "http://3.82.194.73/"
+    case base = "http://34.237.242.6/"
     case oauthToken = "oauth/token/"
     case signUp = "sign_up/"
     case healthProviders = "health_providers/"
     case search = "search/"
     case authorizations = "authorizations/"
     case usersMe = "users/me/"
+    case studyTypes = "study_types/"
 }
 
 class Headers {

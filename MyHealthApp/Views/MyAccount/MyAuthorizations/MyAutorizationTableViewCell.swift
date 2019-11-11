@@ -36,15 +36,19 @@ class MyAutorizationTableViewCell: UITableViewCell {
         switch authorization.state {
         case .accepted:
             stateLabel.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            self.stateLabel.text = "Aceptado"
             break
         case .declined:
             stateLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            self.stateLabel.text = "Denegado"
             break
         case .evaluation:
             stateLabel.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            self.stateLabel.text = "En evaluaciónq"
             break
         case .requested:
             stateLabel.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            self.stateLabel.text = "Pedido"
             break
         }
         

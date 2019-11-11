@@ -17,7 +17,7 @@ protocol VDPService {
 class VDPRemoteService: VDPService {
 
     func send(authorization: AuthorizationPost, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
-        requestWith(endUrl: "", imageData: authorization.image?.pngData(), parameters: ["provider_id" : authorization.healthProvider.id, "specialty_id" : authorization.specialty.id], onCompletion: success, onError: { (error) in
+        requestWith(endUrl: "", imageData: authorization.image?.pngData(), parameters: ["provider_id" : authorization.healthProvider.id, "specialty_id" : authorization.specialty.id, "study_type_id" : authorization.studyType.id], onCompletion: success, onError: { (error) in
             failure(HttpError(type: .other))
         })
     }

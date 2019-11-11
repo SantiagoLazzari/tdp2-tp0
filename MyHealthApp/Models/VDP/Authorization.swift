@@ -11,6 +11,7 @@ import UIKit
 struct AuthorizationPost {
     var image: UIImage?
     let specialty: Specialty
+    let studyType: StudyType
     let healthProvider: HealthProvider
     let specifications: String?
 }

@@ -9,6 +9,26 @@
 
 import UIKit
 
+struct StudyType: Codable {
+    let name: String
+    let id: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case id = "id"
+    }
+}
+
+struct StudyTypeResponse: Codable  {
+    
+    let response: [StudyType]
+    
+    enum CodingKeys: String, CodingKey {
+        case response = "response"
+    }
+
+}
+
 struct Specialty: Codable {
     let name: String
     let id: Int
