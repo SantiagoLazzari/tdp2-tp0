@@ -30,5 +30,5 @@ class VDPPresenter: NSObject {
            self?.view.stopLoading()
         }
     }
-    
+
 }

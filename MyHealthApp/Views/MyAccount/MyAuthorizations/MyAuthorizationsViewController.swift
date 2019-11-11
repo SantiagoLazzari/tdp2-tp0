@@ -100,4 +100,27 @@ extension MyAuthorizationsViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            
+            let alert = UIAlertController(title: "¿Cancelar autorización?", message: "Cancelar la autorizacion es un proceso irreversible ¿Seguro querés cancelarla?", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Si", style: .cancel, handler: { (action) in
+                let authorization = self.authorizations[indexPath.row]
+                self.presenter?.cancel(authorizationId: authorization.id)
+                    
+            }))
+            
+            alert.addAction(UIAlertAction(title: "no", style: .default, handler: nil))
+
+            self.present(alert, animated: true)
+
+            
+        }
+    }
 }

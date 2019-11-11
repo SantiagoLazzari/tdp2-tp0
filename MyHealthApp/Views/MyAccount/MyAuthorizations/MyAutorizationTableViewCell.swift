@@ -31,7 +31,6 @@ class MyAutorizationTableViewCell: UITableViewCell {
         
         self.name.text = authorization.healthProvider.name!
         self.specialty.text = authorization.specialty.name
-        self.stateLabel.text = authorization.state.rawValue
         
         switch authorization.state {
         case .accepted:
@@ -44,12 +43,17 @@ class MyAutorizationTableViewCell: UITableViewCell {
             break
         case .evaluation:
             stateLabel.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-            self.stateLabel.text = "En evaluaciónq"
+            self.stateLabel.text = "En evaluación"
             break
         case .requested:
             stateLabel.textColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             self.stateLabel.text = "Pedido"
             break
+        case .candeled:
+            stateLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            self.stateLabel.text = "Cancelado"
+            break
+
         }
         
     }

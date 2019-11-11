@@ -29,4 +29,16 @@ class MyAuthorizationsPresenter: NSObject {
         }
     }
     
+        func cancel(authorizationId: Int) {
+            view.startLoading()
+            service.cancel(authorizationId: authorizationId, success: { [weak self] (authorization) in
+                self?.fetch()
+            }) { (error) in
+                self.view.stopLoading()
+                self.view.show(error: error)
+
+            }
+        }
+
+    
 }

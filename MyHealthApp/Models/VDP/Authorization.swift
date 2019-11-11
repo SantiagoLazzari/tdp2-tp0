@@ -21,6 +21,7 @@ enum AuthorizationState: String, Codable {
     case evaluation = "evaluation"
     case declined = "declined"
     case accepted = "accepted"
+    case candeled = "cancel"
 }
 
 struct Authorization: Codable {
@@ -28,13 +29,26 @@ struct Authorization: Codable {
     let specialty: Specialty
     let state: AuthorizationState
     let healthProvider: HealthProvider
+    let id: Int
     
     enum CodingKeys: String, CodingKey {
         case specialty = "specialty"
         case state = "status"
         case healthProvider = "provider"
+        case id = "id"
     }
 }
+
+struct AuthorizationResponse: Codable {
+    
+    let response: Authorization
+
+    enum CodingKeys: String, CodingKey {
+        case response = "response"
+    }
+
+}
+
 
 struct AuthorizationsResponse: Codable {
     
