@@ -79,10 +79,6 @@ class HomeViewController: ViewController {
             specialtyTextField.layer.masksToBounds = true
             specialtyTextField.layer.cornerRadius = 8
 
-            
-            
-
-            
             view.addGestureRecognizer(gr)
             activityInicator = MyHealthAppActivityIndicator(into: view)
             

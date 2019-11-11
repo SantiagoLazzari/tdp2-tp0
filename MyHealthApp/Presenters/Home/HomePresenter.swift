@@ -104,6 +104,10 @@ class HomePresenter: NSObject {
         }
     }
     
+    func logout() {
+        router.routeToLogin()
+    }
+    
     func presentVDP(healthProvider: HealthProvider) {
         router.routeToVDP(healthProvider: healthProvider)
     }

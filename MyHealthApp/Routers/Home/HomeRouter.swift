@@ -23,6 +23,8 @@ class HomeAppRouter: HomeRouter {
     
     func routeToHome(from: UIViewController) {
         let navItem = UIBarButtonItem(image: UIImage(named: "user_icon"), style: .plain, target: self, action: #selector(myAccountWasTapped))
+        
+        let logoutItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logoutButtonWasTapped))
 
                 
         let mapService = HomeRemoteService()
@@ -35,6 +37,7 @@ class HomeAppRouter: HomeRouter {
 
         mapView.tabBarItem = mapItem
         mapView.navigationItem.rightBarButtonItem = navItem
+        mapView.navigationItem.leftBarButtonItem = logoutItem
         
         let listService = HomeRemoteService()
         let listPresenter = HomePresenter(view: listView, service: listService, router: self)
@@ -47,6 +50,8 @@ class HomeAppRouter: HomeRouter {
 
         listView.tabBarItem = listItem
         listView.navigationItem.rightBarButtonItem = navItem
+        listView.navigationItem.leftBarButtonItem = logoutItem
+
         
         tabbar.modalPresentationStyle = .fullScreen
         tabbar.viewControllers = [mapNavigation, listNavigation]
@@ -60,7 +65,7 @@ class HomeAppRouter: HomeRouter {
     }
     
     func routeToLogin() {
-        
+        LoginAppRouter().route(toLogin: tabbar)
     }
     
     func routeToMyAccount() {
@@ -69,5 +74,9 @@ class HomeAppRouter: HomeRouter {
     
     @objc func myAccountWasTapped() {
         routeToMyAccount()
+    }
+    
+    @objc func logoutButtonWasTapped() {
+        routeToLogin()
     }
 }
