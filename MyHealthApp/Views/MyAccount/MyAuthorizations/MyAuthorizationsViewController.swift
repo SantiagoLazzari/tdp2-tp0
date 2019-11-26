@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MyAuthorizationsView {
-    func show(authorizations: [Authorization])
+    func show(authorizations: [ShortAuthorization])
     func showZRP()
     func show(error: Error)
     func startLoading()
@@ -20,7 +20,7 @@ class MyAuthorizationsViewController: ViewController {
 
     var activityInicator: MyHealthAppActivityIndicator?
     var presenter: MyAuthorizationsPresenter?
-    var authorizations: [Authorization] = []
+    var authorizations: [ShortAuthorization] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -75,7 +75,7 @@ extension MyAuthorizationsViewController: MyAuthorizationsView {
         
     }
     
-    func show(authorizations: [Authorization]) {
+    func show(authorizations: [ShortAuthorization]) {
         self.authorizations = authorizations
         tableView.reloadData()
     }
@@ -119,8 +119,12 @@ extension MyAuthorizationsViewController: UITableViewDataSource, UITableViewDele
             alert.addAction(UIAlertAction(title: "no", style: .default, handler: nil))
 
             self.present(alert, animated: true)
-
-            
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let authorization = authorizations[indexPath.row]
+        
+        presenter?.present(authorization: authorization)
     }
 }

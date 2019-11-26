@@ -10,19 +10,24 @@ import UIKit
 
 protocol MyAuthorizationsRouter {
     func routeToMyAuthorizations(from: UIViewController)
+    func routeToMyAuthorization(authorizationId: Int)
 }
 
 class MyAuthorizationsAppRouter: MyAuthorizationsRouter {
-    
     let view = MyAuthorizationsViewController()
     
     func routeToMyAuthorizations(from: UIViewController) {
         let service = MyAuthorizationsRemoteService()
-        let presenter = MyAuthorizationsPresenter(view: view, service: service)
+        let presenter = MyAuthorizationsPresenter(view: view, service: service, router: self)
         view.presenter = presenter
         
         let navigation = UINavigationController(rootViewController: view)
         
         from.present(navigation, animated: true, completion: nil)
+    }
+    
+    func routeToMyAuthorization(authorizationId: Int) {
+        let router = MyAuthorizationAppRouter()
+        router.routeToMyAuthorization(from: view, authorizationId: authorizationId)
     }
 }

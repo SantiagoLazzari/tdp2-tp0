@@ -151,7 +151,7 @@ class RegisterViewController: ViewController {
         
         passwordTextField.errorMessage = nil
         
-        let user = User(identification: id, medicalPlan: MedicalPlan(id: 1, number: 310), email: email, name: name, lastName: lastName, phone: phone, birthDate: birthDate, medicalPlanExpirationDate: expirationDate, password: password)
+        let user = User(id: nil, identification: id, medicalPlan: MedicalPlan(id: 1, number: 310), email: email, name: name, lastName: lastName, phone: phone, birthDate: birthDate, medicalPlanExpirationDate: expirationDate, password: password, familyGroup: nil)
         presenter?.register(user: user)
     }
 }

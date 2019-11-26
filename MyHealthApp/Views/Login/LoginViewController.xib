@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -88,13 +88,25 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_icon" translatesAutoresizingMaskIntoConstraints="NO" id="UkW-rH-a1r">
                     <rect key="frame" x="0.0" y="44" width="414" height="210"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-eC-Evr">
+                    <rect key="frame" x="20" y="450.5" width="140" height="30"/>
+                    <state key="normal" title="Olvidé la contraseña">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="forgetPasswordButtonWasTapped:" destination="-1" eventType="touchUpInside" id="Z6L-UN-Bva"/>
+                        <action selector="registerButtonWasTapped:" destination="-1" eventType="touchUpInside" id="ssQ-l4-KId"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Id5-Fh-ROn" firstAttribute="top" secondItem="Gkb-Tk-kcS" secondAttribute="bottom" constant="8" id="28Q-oh-Kim"/>
+                <constraint firstItem="fMX-eC-Evr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="GEu-Wj-FPa"/>
                 <constraint firstAttribute="trailing" secondItem="Gkb-Tk-kcS" secondAttribute="trailing" constant="20" id="MbC-Qo-R79"/>
                 <constraint firstItem="UkW-rH-a1r" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="PN1-Qc-24h"/>
                 <constraint firstItem="UkW-rH-a1r" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aQX-g5-uRB"/>
+                <constraint firstItem="fMX-eC-Evr" firstAttribute="top" secondItem="Gkb-Tk-kcS" secondAttribute="bottom" constant="8" id="afa-lt-UKt"/>
                 <constraint firstItem="Gkb-Tk-kcS" firstAttribute="top" secondItem="UkW-rH-a1r" secondAttribute="bottom" constant="20" id="gPw-Ge-x1H"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UkW-rH-a1r" secondAttribute="trailing" id="hip-aD-APU"/>
                 <constraint firstItem="Gkb-Tk-kcS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="lgj-ve-gkB"/>

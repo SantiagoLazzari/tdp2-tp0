@@ -12,10 +12,12 @@ class MyAuthorizationsPresenter: NSObject {
 
     var view: MyAuthorizationsView
     var service: MyAuthorizationsService
+    var router: MyAuthorizationsRouter
     
-    init(view: MyAuthorizationsView, service: MyAuthorizationsService) {
+    init(view: MyAuthorizationsView, service: MyAuthorizationsService, router: MyAuthorizationsRouter) {
         self.view = view
         self.service = service
+        self.router = router
     }
     
     func fetch() {
@@ -29,16 +31,19 @@ class MyAuthorizationsPresenter: NSObject {
         }
     }
     
-        func cancel(authorizationId: Int) {
-            view.startLoading()
-            service.cancel(authorizationId: authorizationId, success: { [weak self] (authorization) in
-                self?.fetch()
-            }) { (error) in
-                self.view.stopLoading()
-                self.view.show(error: error)
+    func cancel(authorizationId: Int) {
+        view.startLoading()
+        service.cancel(authorizationId: authorizationId, success: { [weak self] (authorization) in
+            self?.fetch()
+        }) { (error) in
+            self.view.stopLoading()
+            self.view.show(error: error)
 
-            }
         }
+    }
 
-    
+
+    func present(authorization: ShortAuthorization) {
+        router.routeToMyAuthorization(authorizationId: authorization.id)
+    }
 }

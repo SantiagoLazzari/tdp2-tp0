@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CurrentUser: NSObject {
     
     static let shared = CurrentUser()

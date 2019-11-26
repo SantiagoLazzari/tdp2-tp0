@@ -26,11 +26,15 @@
 		6A76FC9923396BF3005BBF75 /* PasswordInputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC9423396BF3005BBF75 /* PasswordInputValidator.swift */; };
 		6A76FC9D23396C39005BBF75 /* IdValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC9C23396C39005BBF75 /* IdValidator.swift */; };
 		6A76FC9F23396C63005BBF75 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76FC9E23396C63005BBF75 /* NameValidator.swift */; };
+		6AC48144238B1518000827DD /* MyAuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48142238B1518000827DD /* MyAuthorizationViewController.swift */; };
+		6AC48145238B1518000827DD /* MyAuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AC48143238B1518000827DD /* MyAuthorizationViewController.xib */; };
+		6AC48147238B155E000827DD /* MyAuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48146238B155E000827DD /* MyAuthorizationRouter.swift */; };
+		6AC48149238B161F000827DD /* MyAuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC48148238B161F000827DD /* MyAuthorizationPresenter.swift */; };
 		6ACBD32B234A7DD4004C7D61 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD32A234A7DD4004C7D61 /* HomeRouter.swift */; };
 		6ACBD32D234A88F9004C7D61 /* Specialty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD32C234A88F9004C7D61 /* Specialty.swift */; };
 		6ACBD32F234A8BB7004C7D61 /* Specialities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD32E234A8BB7004C7D61 /* Specialities.swift */; };
 		6ACBD333234A921E004C7D61 /* VDPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD332234A921E004C7D61 /* VDPService.swift */; };
-		6ACBD335234A9249004C7D61 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD334234A9249004C7D61 /* Authorization.swift */; };
+		6ACBD335234A9249004C7D61 /* ShortAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD334234A9249004C7D61 /* ShortAuthorization.swift */; };
 		6ACBD337234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD336234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift */; };
 		6ACBD339234AA714004C7D61 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD338234AA713004C7D61 /* CurrentUser.swift */; };
 		6ACBD33F234AB39A004C7D61 /* VDPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACBD33E234AB39A004C7D61 /* VDPRouter.swift */; };
@@ -104,11 +108,15 @@
 		6A76FC9423396BF3005BBF75 /* PasswordInputValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordInputValidator.swift; sourceTree = "<group>"; };
 		6A76FC9C23396C39005BBF75 /* IdValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdValidator.swift; sourceTree = "<group>"; };
 		6A76FC9E23396C63005BBF75 /* NameValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		6AC48142238B1518000827DD /* MyAuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationViewController.swift; sourceTree = "<group>"; };
+		6AC48143238B1518000827DD /* MyAuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAuthorizationViewController.xib; sourceTree = "<group>"; };
+		6AC48146238B155E000827DD /* MyAuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationRouter.swift; sourceTree = "<group>"; };
+		6AC48148238B161F000827DD /* MyAuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAuthorizationPresenter.swift; sourceTree = "<group>"; };
 		6ACBD32A234A7DD4004C7D61 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		6ACBD32C234A88F9004C7D61 /* Specialty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialty.swift; sourceTree = "<group>"; };
 		6ACBD32E234A8BB7004C7D61 /* Specialities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialities.swift; sourceTree = "<group>"; };
 		6ACBD332234A921E004C7D61 /* VDPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDPService.swift; sourceTree = "<group>"; };
-		6ACBD334234A9249004C7D61 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		6ACBD334234A9249004C7D61 /* ShortAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortAuthorization.swift; sourceTree = "<group>"; };
 		6ACBD336234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyHealthAppActivityIndicator.swift; sourceTree = "<group>"; };
 		6ACBD338234AA713004C7D61 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		6ACBD33E234AB39A004C7D61 /* VDPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDPRouter.swift; sourceTree = "<group>"; };
@@ -258,7 +266,7 @@
 		6ACBD330234A8D29004C7D61 /* VDP */ = {
 			isa = PBXGroup;
 			children = (
-				6ACBD334234A9249004C7D61 /* Authorization.swift */,
+				6ACBD334234A9249004C7D61 /* ShortAuthorization.swift */,
 			);
 			path = VDP;
 			sourceTree = "<group>";
@@ -524,6 +532,7 @@
 			isa = PBXGroup;
 			children = (
 				6AEDE212234ADC1A00BDE107 /* MyAuthorizationsPresenter.swift */,
+				6AC48148238B161F000827DD /* MyAuthorizationPresenter.swift */,
 			);
 			path = MyAuthorizations;
 			sourceTree = "<group>";
@@ -551,6 +560,8 @@
 				6AEDE20F234ADBAC00BDE107 /* MyAuthorizationsViewController.xib */,
 				6AEDE216234AE38000BDE107 /* MyAutorizationTableViewCell.swift */,
 				6AEDE217234AE38000BDE107 /* MyAutorizationTableViewCell.xib */,
+				6AC48142238B1518000827DD /* MyAuthorizationViewController.swift */,
+				6AC48143238B1518000827DD /* MyAuthorizationViewController.xib */,
 			);
 			path = MyAuthorizations;
 			sourceTree = "<group>";
@@ -559,6 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				6AEDE20C234ADB4600BDE107 /* MyAuthorizationsRouter.swift */,
+				6AC48146238B155E000827DD /* MyAuthorizationRouter.swift */,
 			);
 			path = MyAuthorizations;
 			sourceTree = "<group>";
@@ -656,6 +668,7 @@
 				6AEDE211234ADBAC00BDE107 /* MyAuthorizationsViewController.xib in Resources */,
 				6A7402A32366881F00719989 /* ListHomeViewController.xib in Resources */,
 				6A74029F236686E900719989 /* HomeTabBarController.xib in Resources */,
+				6AC48145238B1518000827DD /* MyAuthorizationViewController.xib in Resources */,
 				6ACCB15C232EAD040060A340 /* LaunchScreen.storyboard in Resources */,
 				6AEDE219234AE38000BDE107 /* MyAutorizationTableViewCell.xib in Resources */,
 				6A74029A23667A2900719989 /* GoogleService-Info.plist in Resources */,
@@ -752,12 +765,14 @@
 				6ACCB15E232EAD040060A340 /* AppDelegate.swift in Sources */,
 				6A76FC9723396BF3005BBF75 /* InputValidator.swift in Sources */,
 				6ACBD337234A95AE004C7D61 /* MyHealthAppActivityIndicator.swift in Sources */,
+				6AC48147238B155E000827DD /* MyAuthorizationRouter.swift in Sources */,
 				6A76FC9D23396C39005BBF75 /* IdValidator.swift in Sources */,
 				6ACCB172232EB1E70060A340 /* LoginPresenter.swift in Sources */,
 				6AEDE201234AC91200BDE107 /* MyAccountViewController.swift in Sources */,
 				6ACCB15D232EAD040060A340 /* HomePresenter.swift in Sources */,
 				6ACBD32F234A8BB7004C7D61 /* Specialities.swift in Sources */,
 				6ACCB167232EAD040060A340 /* LoginRemoteService.swift in Sources */,
+				6AC48149238B161F000827DD /* MyAuthorizationPresenter.swift in Sources */,
 				6ACCB179232EC01C0060A340 /* User.swift in Sources */,
 				6AE25B772379B48F00F668FD /* StudyTypes.swift in Sources */,
 				6AEDE218234AE38000BDE107 /* MyAutorizationTableViewCell.swift in Sources */,
@@ -779,9 +794,10 @@
 				6ACBD33F234AB39A004C7D61 /* VDPRouter.swift in Sources */,
 				6ACBD333234A921E004C7D61 /* VDPService.swift in Sources */,
 				6A3B39AA233C3292009A891A /* VDPPresenter.swift in Sources */,
+				6AC48144238B1518000827DD /* MyAuthorizationViewController.swift in Sources */,
 				6ACBD339234AA714004C7D61 /* CurrentUser.swift in Sources */,
 				6AEDE213234ADC1A00BDE107 /* MyAuthorizationsPresenter.swift in Sources */,
-				6ACBD335234A9249004C7D61 /* Authorization.swift in Sources */,
+				6ACBD335234A9249004C7D61 /* ShortAuthorization.swift in Sources */,
 				6A76FC9923396BF3005BBF75 /* PasswordInputValidator.swift in Sources */,
 				6ACCB160232EAD040060A340 /* HomeViewController.swift in Sources */,
 			);

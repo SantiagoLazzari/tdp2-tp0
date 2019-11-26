@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyAuthorizationViewController" customModule="MyHealthApp" customModuleProvider="target">
+            <connections>
+                <outlet property="helthProviderAdress" destination="Gdh-Wb-vjk" id="QlW-lm-eep"/>
+                <outlet property="helthProviderName" destination="Ryg-fH-rl3" id="atT-iX-ECv"/>
+                <outlet property="helthProviderPhoneLabel" destination="M0h-Qo-ohX" id="xEx-ru-oCg"/>
+                <outlet property="requesterImageView" destination="coL-ob-ec9" id="OlG-T9-7xq"/>
+                <outlet property="statusLabel" destination="wfk-g2-jLm" id="nqt-hh-0bg"/>
+                <outlet property="tipeOfStudyLabel" destination="85C-XC-nqC" id="Ubh-ZE-x9M"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ryg-fH-rl3">
+                    <rect key="frame" x="8" y="64" width="14" height="37"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdh-Wb-vjk">
+                    <rect key="frame" x="8" y="117" width="6.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0h-Qo-ohX">
+                    <rect key="frame" x="8" y="142" width="6.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-/-" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85C-XC-nqC">
+                    <rect key="frame" x="8" y="179" width="398" height="37"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orden" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uuh-XN-DMO">
+                    <rect key="frame" x="8" y="236" width="398" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="medical_prescription_icon" translatesAutoresizingMaskIntoConstraints="NO" id="coL-ob-ec9">
+                    <rect key="frame" x="8" y="269.5" width="398" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="6Zp-jU-xwM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="wfk-g2-jLm">
+                    <rect key="frame" x="30" y="805" width="354" height="37"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" name="AppBlue"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wfk-g2-jLm" secondAttribute="bottom" constant="20" id="3PQ-Sz-Odj"/>
+                <constraint firstItem="wfk-g2-jLm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="3TP-ng-dMU"/>
+                <constraint firstItem="Uuh-XN-DMO" firstAttribute="top" secondItem="85C-XC-nqC" secondAttribute="bottom" constant="20" id="4Fz-QN-mln"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="coL-ob-ec9" secondAttribute="trailing" constant="8" id="9aw-HV-tyG"/>
+                <constraint firstItem="85C-XC-nqC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="HX5-3q-XNA"/>
+                <constraint firstItem="coL-ob-ec9" firstAttribute="top" secondItem="Uuh-XN-DMO" secondAttribute="bottom" constant="8" id="JZJ-yn-OOo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="85C-XC-nqC" secondAttribute="trailing" constant="8" id="L4e-19-jic"/>
+                <constraint firstItem="Gdh-Wb-vjk" firstAttribute="top" secondItem="Ryg-fH-rl3" secondAttribute="bottom" constant="16" id="UtI-BL-d3h"/>
+                <constraint firstItem="wfk-g2-jLm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VH8-Ei-1Lh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wfk-g2-jLm" secondAttribute="trailing" constant="30" id="b55-oE-zfR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Uuh-XN-DMO" secondAttribute="trailing" constant="8" id="cqv-Lt-T4C"/>
+                <constraint firstItem="M0h-Qo-ohX" firstAttribute="top" secondItem="Gdh-Wb-vjk" secondAttribute="bottom" constant="8" id="eu0-EV-IfD"/>
+                <constraint firstItem="coL-ob-ec9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="gyc-uP-pZX"/>
+                <constraint firstItem="Gdh-Wb-vjk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="is1-wf-1gP"/>
+                <constraint firstItem="Ryg-fH-rl3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="jcc-np-6Az"/>
+                <constraint firstItem="85C-XC-nqC" firstAttribute="top" secondItem="M0h-Qo-ohX" secondAttribute="bottom" constant="20" id="pZX-Wx-u9W"/>
+                <constraint firstItem="Ryg-fH-rl3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="rFI-vl-KBR"/>
+                <constraint firstItem="Uuh-XN-DMO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="sCj-hT-yuO"/>
+                <constraint firstItem="M0h-Qo-ohX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="u1G-iK-XRr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="79.6875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="medical_prescription_icon" width="256" height="256"/>
+        <namedColor name="AppBlue">
+            <color red="0.68235294117647061" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

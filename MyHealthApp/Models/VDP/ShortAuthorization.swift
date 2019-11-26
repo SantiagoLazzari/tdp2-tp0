@@ -14,6 +14,7 @@ struct AuthorizationPost {
     let studyType: StudyType
     let healthProvider: HealthProvider
     let specifications: String?
+    let requesterId: Int
 }
 
 enum AuthorizationState: String, Codable {
@@ -24,7 +25,7 @@ enum AuthorizationState: String, Codable {
     case candeled = "cancel"
 }
 
-struct Authorization: Codable {
+struct ShortAuthorization: Codable {
 
     let specialty: Specialty
     let state: AuthorizationState
@@ -39,9 +40,9 @@ struct Authorization: Codable {
     }
 }
 
-struct AuthorizationResponse: Codable {
+struct AuthorizationsResponse: Codable {
     
-    let response: Authorization
+    let response: [ShortAuthorization]
 
     enum CodingKeys: String, CodingKey {
         case response = "response"
@@ -49,13 +50,36 @@ struct AuthorizationResponse: Codable {
 
 }
 
+struct Authorization: Codable {
 
-struct AuthorizationsResponse: Codable {
+    let specialty: Specialty
+    let state: AuthorizationState
+    let healthProvider: HealthProvider
+    let id: Int
+    let studyType: StudyType
+    let requesterImageUrl: String?
+    let approverImageUrl: String?
+    let processedTime: String?
+    let requester: User
     
-    let response: [Authorization]
+    enum CodingKeys: String, CodingKey {
+        case specialty = "specialty"
+        case state = "status"
+        case healthProvider = "provider"
+        case id = "id"
+        case studyType = "study_type"
+        case requesterImageUrl = "requester_image_url"
+        case approverImageUrl = "approver_image_url"
+        case processedTime = "processed_time"
+        case requester = "requester"
+
+    }
+}
+
+struct AuthorizationResponse: Codable {
+    let response: Authorization
 
     enum CodingKeys: String, CodingKey {
         case response = "response"
     }
-
 }

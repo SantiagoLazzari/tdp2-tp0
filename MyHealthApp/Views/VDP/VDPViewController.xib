@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VDPViewController" customModule="MyHealthApp" customModuleProvider="target">
             <connections>
                 <outlet property="confirmButton" destination="DaU-ie-amC" id="T74-h8-vsI"/>
+                <outlet property="familyGroupTextField" destination="HfN-Nf-vD1" id="mRn-U7-p5t"/>
                 <outlet property="hospitalAddressLabel" destination="3BK-qo-hed" id="gey-bV-9L7"/>
                 <outlet property="hospitalNameLablel" destination="2nR-Kq-mJZ" id="Oeh-nr-baj"/>
                 <outlet property="hospitalPhoneLabel" destination="b4J-ec-d89" id="g1t-Tu-J1B"/>
@@ -55,10 +56,10 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-Gn-A67">
-                    <rect key="frame" x="8" y="259" width="398" height="256"/>
+                    <rect key="frame" x="8" y="301" width="398" height="200"/>
                     <color key="backgroundColor" name="AppBlue"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="256" id="829-Wt-2SA"/>
+                        <constraint firstAttribute="height" constant="200" id="829-Wt-2SA"/>
                     </constraints>
                     <state key="normal" image="medical_prescription_icon"/>
                     <connections>
@@ -79,7 +80,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6d-td-Sze">
-                    <rect key="frame" x="8" y="523" width="97" height="30"/>
+                    <rect key="frame" x="8" y="509" width="97" height="30"/>
                     <state key="normal" title="Borrar imagen">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -87,23 +88,31 @@
                         <action selector="deleteImageButtonWasTapped:" destination="-1" eventType="touchUpInside" id="fdJ-SK-KGa"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Persona de su grupo familiar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HfN-Nf-vD1">
+                    <rect key="frame" x="8" y="251" width="398" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" name="AppBlue"/>
             <constraints>
                 <constraint firstItem="3BK-qo-hed" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="26W-tF-rU7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vSd-Gn-A67" secondAttribute="trailing" constant="8" id="4K6-9O-cNY"/>
+                <constraint firstItem="vSd-Gn-A67" firstAttribute="top" secondItem="HfN-Nf-vD1" secondAttribute="bottom" constant="16" id="60E-86-Vp9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TNM-2U-33W" secondAttribute="trailing" constant="8" id="83w-8C-rgD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HfN-Nf-vD1" secondAttribute="trailing" constant="8" id="8Sc-ff-dnB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="b4J-ec-d89" secondAttribute="trailing" constant="8" id="9Qk-0z-xvW"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="top" secondItem="3BK-qo-hed" secondAttribute="bottom" constant="8" id="BPU-xL-MW6"/>
                 <constraint firstItem="DaU-ie-amC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Bpq-xB-ar5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DaU-ie-amC" secondAttribute="trailing" constant="8" id="Dcl-eX-qaX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3BK-qo-hed" secondAttribute="trailing" constant="8" id="IC5-uX-tN1"/>
-                <constraint firstItem="vSd-Gn-A67" firstAttribute="top" secondItem="FyT-1e-UTD" secondAttribute="bottom" constant="16" id="JKa-kM-g3O"/>
                 <constraint firstItem="TNM-2U-33W" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="JSy-Aj-WR2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FyT-1e-UTD" secondAttribute="trailing" constant="8" id="KjZ-R8-Km3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="DaU-ie-amC" secondAttribute="bottom" constant="8" id="L0m-vO-odN"/>
                 <constraint firstItem="b4J-ec-d89" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Q5p-Pg-4cC"/>
+                <constraint firstItem="HfN-Nf-vD1" firstAttribute="top" secondItem="FyT-1e-UTD" secondAttribute="bottom" constant="8" id="RR4-GV-iRQ"/>
                 <constraint firstItem="vSd-Gn-A67" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Tjl-IJ-rgL"/>
+                <constraint firstItem="HfN-Nf-vD1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Twz-o5-pnR"/>
                 <constraint firstItem="M6d-td-Sze" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="ULB-o7-lN6"/>
                 <constraint firstItem="TNM-2U-33W" firstAttribute="top" secondItem="b4J-ec-d89" secondAttribute="bottom" constant="8" id="dzy-z4-29n"/>
                 <constraint firstItem="M6d-td-Sze" firstAttribute="top" secondItem="vSd-Gn-A67" secondAttribute="bottom" constant="8" id="kkS-SE-FDj"/>

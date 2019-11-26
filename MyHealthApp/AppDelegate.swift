@@ -41,7 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if CurrentUser.shared.getToken() == nil {
             loginRouter.route(toLogin: controller)
         } else {
-            homeRouter.routeToHome(from: controller)
+            LoginRemoteService().getUser(success: {
+                self.homeRouter.routeToHome(from: controller)
+            }) { (error) in
+                
+            }
+            
         }
     
         return true

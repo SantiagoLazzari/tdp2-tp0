@@ -39,18 +39,20 @@ struct MedicalPlan: Codable {
 }
 
 struct User: Codable {
+    let id: Int?
     let identification: Int
-    let medicalPlan: MedicalPlan
-    let email: String
-    let name: String
-    let lastName: String
-    let phone: String
+    let medicalPlan: MedicalPlan?
+    let email: String?
+    let name: String?
+    let lastName: String?
+    let phone: String?
     let birthDate: String?
     let medicalPlanExpirationDate: String?
     let password: String?
-    
+    let familyGroup: FamilyGroup?
     
     enum CodingKeys: String, CodingKey {
+        case id = "id"
         case identification = "document_number"
         case medicalPlan = "medical_plan"
         case email = "email"
@@ -60,6 +62,7 @@ struct User: Codable {
         case birthDate = "birth_date"
         case medicalPlanExpirationDate = "medical_plan_expiration_date"
         case password = "password"
+        case familyGroup = "family_group"
     }
 }
 
@@ -70,3 +73,12 @@ struct UserResponse: Codable {
         case response = "response"
     }
 }
+
+struct FamilyGroup: Codable {
+    let users: [User]?
+    
+    enum CodingKeys: String, CodingKey {
+        case users = "users"
+    }
+}
+

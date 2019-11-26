@@ -14,6 +14,7 @@ protocol LoginService: NSObject {
     func login(candidate: UserCandidate, success: @escaping () -> Void, failure: @escaping ServiceFailure);
     func register(user: User, success: @escaping () -> Void, failure: @escaping ServiceFailure)
     func register(deviceToken: String, success: @escaping () -> Void, failure: @escaping ServiceFailure)
+    func getUser(success: @escaping () -> Void, failure: @escaping ServiceFailure)
 }
 
 class LoginRemoteService: NSObject, LoginService {
@@ -21,6 +22,14 @@ class LoginRemoteService: NSObject, LoginService {
         Service().patch(path: self.usersMePath(), body: ["device_token": deviceToken], success: { (user: UserResponse) in
             success()
         }, failure: failure)
+    }
+    
+    func getUser(success: @escaping () -> Void, failure: @escaping ServiceFailure) {
+        Service().get(path: usersMePath(), success: { (user: UserResponse) in
+            CurrentUser.shared.user = user.response
+            success()
+        }, failure: failure)
+
     }
     
     
@@ -51,19 +60,4 @@ class LoginRemoteService: NSObject, LoginService {
     }
     
 }
-
-class LoginLocalService: NSObject, LoginService {
-    func register(deviceToken: String, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
-        success()
-    }
-    
-    func register(user: User, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
-        success()
-    }
-    
-    func login(candidate: UserCandidate, success: @escaping () -> Void, failure: @escaping ServiceFailure) {
-        success()
-    }
-}
-
 

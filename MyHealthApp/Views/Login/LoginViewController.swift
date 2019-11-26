@@ -64,22 +64,38 @@ class LoginViewController: ViewController {
         
         identificationTextField.errorMessage = nil
 
-//        guard let password = passwordTextField.text else {
-//            passwordTextField.errorMessage = "ingresá una contraseña"
-//            return
-//        }
-//        
-//        report = PasswordInputValidator().validate(test: password)
-//        
-//        if !report.valid {passwordTextField.errorMessage = report.error ;return}
-//        
-//        passwordTextField.errorMessage = nil
-        
         presenter?.login(identification: Int(identificationTextField.text!), password: passwordTextField.text)
     }
     
     @IBAction func registerButtonWasTapped(_ sender: Any) {
         presenter?.register()
+    }
+    
+    @IBAction func forgetPasswordButtonWasTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Email", message: "Ingresá tu email para recuperar la contraseña", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.placeholder = "Email"
+        }
+
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            
+            Service().post(path: Path.base.rawValue + "reset_password", body: ["email" : alert?.textFields?[0].text], success: { (response: [String: String]) in
+                
+            }) { (error) in
+                
+            }
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+
+        self.present(alert, animated: true, completion: nil)
+
     }
 }
 

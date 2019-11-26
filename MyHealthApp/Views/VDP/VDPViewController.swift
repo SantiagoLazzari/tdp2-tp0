@@ -21,15 +21,19 @@ class VDPViewController: ViewController {
     @IBOutlet weak var studySpecificationTextField: UITextField!
     @IBOutlet weak var presriptionButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var familyGroupTextField: UITextField!
     
     var imagePicker = UIImagePickerController()
     var selectedSpecialty = Specialities.specialities.first
     var selectedStudyType = StudyTypes.studyTypes.first
     
+    var selectedUser = CurrentUser.shared.user!.familyGroup!.users!.first
+    
     var activityInicator: MyHealthAppActivityIndicator?
     var specialtyPicker: UIPickerView?
     var studyTypePicker: UIPickerView?
-    
+    var familyGroupPicker: UIPickerView?
+
     var presenter: VDPPresenter?
     var healthProvider: HealthProvider?
     
@@ -70,6 +74,12 @@ class VDPViewController: ViewController {
                 studyTypePicker?.dataSource = self
                 studyTypePicker?.delegate = self
                 studySpecificationTextField.text = selectedStudyType?.name
+                
+                familyGroupPicker = UIPickerView()
+                familyGroupTextField.inputView = familyGroupPicker
+                familyGroupPicker?.dataSource = self
+                familyGroupPicker?.delegate = self
+                familyGroupTextField.text = String(describing:selectedUser!.identification)
             }
             
             setupPickerView()
@@ -89,6 +99,7 @@ class VDPViewController: ViewController {
     @objc func dismissKeyboard() {
         specialityTextField.endEditing(true)
         studySpecificationTextField.endEditing(true)
+        familyGroupTextField.endEditing(true)
     }
 
     
@@ -104,7 +115,7 @@ class VDPViewController: ViewController {
     }
     
     @IBAction func confirmButtonWasTapped(_ sender: Any) {
-        let authorization = AuthorizationPost(image: image, specialty: selectedSpecialty!, studyType: selectedStudyType!, healthProvider: healthProvider!, specifications: "nada")
+        let authorization = AuthorizationPost(image: image, specialty: selectedSpecialty!, studyType: selectedStudyType!, healthProvider: healthProvider!, specifications: "nada", requesterId: selectedUser!.id!)
      
         presenter?.send(authorization: authorization)
     }
@@ -153,6 +164,10 @@ extension VDPViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             return StudyTypes.studyTypes.count
         }
         
+        if pickerView == familyGroupPicker {
+            return CurrentUser.shared.user?.familyGroup?.users?.count ?? 0
+        }
+        
         return 0
     }
     
@@ -166,7 +181,10 @@ extension VDPViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if pickerView == studyTypePicker {
             return StudyTypes.studyTypes[row].name
         }
-
+        
+        if pickerView == familyGroupPicker {
+            return String(describing: CurrentUser.shared.user!.familyGroup!.users![row].identification)
+        }
         
         return ""
     }
@@ -181,6 +199,11 @@ extension VDPViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         if pickerView == studyTypePicker {
             studySpecificationTextField.text = StudyTypes.studyTypes[row].name
             selectedStudyType = StudyTypes.studyTypes[row]
+        }
+        
+        if pickerView == familyGroupPicker {
+            familyGroupTextField.text = String(describing: CurrentUser.shared.user!.familyGroup!.users![row].identification)
+            selectedUser = CurrentUser.shared.user?.familyGroup?.users?[row]
         }
     }
 }

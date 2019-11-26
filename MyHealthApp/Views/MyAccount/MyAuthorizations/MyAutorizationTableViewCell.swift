@@ -10,7 +10,7 @@ import UIKit
 
 class MyAutorizationTableViewCell: UITableViewCell {
 
-    var authorization: Authorization?
+    var authorization: ShortAuthorization?
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var specialty: UILabel!
     
@@ -26,7 +26,7 @@ class MyAutorizationTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func set(authorization: Authorization) {
+    func set(authorization: ShortAuthorization) {
         self.authorization = authorization
         
         self.name.text = authorization.healthProvider.name!
